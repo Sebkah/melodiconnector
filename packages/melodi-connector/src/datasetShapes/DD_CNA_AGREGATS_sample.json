@@ -1,0 +1,54 @@
+{
+  "identifier": "DD_CNA_AGREGATS",
+  "title": {
+    "fr": "Produit Intérieur Brut (PIB) et grands agrégats économiques",
+    "en": "Gross domestic product (GDP) and main economic aggregates"
+  },
+  "publisher": {
+    "id": "INSEE",
+    "label": [
+      {
+        "lang": "fr",
+        "content": "Institut national de la statistique et des etudes economiques (INSEE)"
+      },
+      {
+        "lang": "en",
+        "content": "National Institute of Statistics and Economic Studies"
+      }
+    ]
+  },
+  "observations": [
+    {
+      "dimensions": {
+        "TRANSFORMATION": "N",
+        "PRICES": "V",
+        "EXPENDITURE": "_Z",
+        "STO": "D9R",
+        "ACCOUNTING_ENTRY": "C",
+        "PRODUCT": "_T",
+        "FREQ": "A",
+        "REF_SECTOR": "S1314",
+        "TIME_PERIOD": 2005,
+        "COUNTERPART_AREA": "W0",
+        "UNIT_MEASURE": "XDC",
+        "INSTR_ASSET": "_Z",
+        "ACTIVITY": "_T"
+      },
+      "attributes": {
+        "OBS_STATUS": "A",
+        "LAST_UPDATE": null,
+        "TABLE_IDENTIFIER": null,
+        "DECIMALS": 1,
+        "UNIT_MULT": 6,
+        "REF_PERIOD_DETAIL": null,
+        "CONF_STATUS": "F",
+        "OBS_STATUS_FR": "D",
+        "REF_YEAR_PRICE": null
+      },
+      "measures": { "OBS_VALUE_NIVEAU": { "value": -758.9 } }
+    }
+  ],
+  "paging": {
+    "first": "https://api.insee.fr/melodi/data/DD_CNA_AGREGATS?maxResult=1&page=1"
+  }
+}

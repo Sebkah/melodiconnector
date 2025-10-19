@@ -1,0 +1,29 @@
+{
+  "name": "melodi-connector",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "generate:types": "tsx ./src/generators/generateTypes.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "papaparse": "^5.5.3",
+    "quicktype": "^23.2.6",
+    "quicktype-core": "^23.2.6"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/adm-zip": "^0.5.7",
+    "@types/node": "^24.8.0",
+    "@types/papaparse": "^5.3.16",
+    "openapi-typescript": "^7.10.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.2"
+  },
+  "type": "module"
+}
