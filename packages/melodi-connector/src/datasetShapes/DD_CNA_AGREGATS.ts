@@ -1665,7 +1665,7 @@ export interface DDCNAAGREGATSAttributes {
  * D - Définitif 
  */
     OBS_STATUS_FR: OBS_STATUS_FR_code_values ;
-    REF_YEAR_PRICE:    null;
+    REF_YEAR_PRICE:    number | null;
 }
 
 export interface DDCNAAGREGATSMeasures {

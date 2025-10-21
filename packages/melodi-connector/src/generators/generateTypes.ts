@@ -15,8 +15,16 @@ import {
 } from "quicktype-core";
 import { CatalogEntry } from "../types/catalogTypes";
 
-import { QueryResponseNoType as QueryResponseUnknownDataset } from "../types/generalTypes";
+import {
+  DatasetIdentifier,
+  QueryResponseNoType as QueryResponseUnknownDataset,
+} from "../types/generalTypes";
 import { traverseObjectOrArray } from "../utils/traverseObjectOrArray";
+import {
+  downloadAndExtractZip,
+  extractMetaData,
+  MetadataRecord,
+} from "../data/downloadFullData";
 
 function clearOrCreateFile(fileName: string) {
   if (existsSync(fileName)) {
@@ -25,41 +33,12 @@ function clearOrCreateFile(fileName: string) {
     writeFileSync(fileName, "", null);
   }
 }
-
-async function quicktypeJSON(
-  targetLanguage: Parameters<typeof jsonInputForTargetLanguage>[0],
-  typeName: string,
-  jsonString: string
-) {
-  const jsonInput = jsonInputForTargetLanguage(targetLanguage);
-
-  // We could add multiple samples for the same desired
-  // type, or many sources for other types. Here we're
-  // just making one type from one piece of sample JSON.
-  await jsonInput.addSource({
-    name: typeName,
-    samples: [jsonString],
-  });
-
-  const inputData = new InputData();
-  inputData.addInput(jsonInput);
-
-  return await quicktype({
-    inputData,
-    lang: targetLanguage,
-    rendererOptions: {
-      "just-types": "true",
-    },
-  });
-}
-
-const melodiApi = "https://api.insee.fr/melodi/catalog/all";
-
 async function fetchCatalog(): Promise<{
-  ids: string[];
+  ids: DatasetIdentifier[];
   descriptions: string[];
 }> {
-  const response = await fetch(melodiApi);
+  const catalogUrl = "https://api.insee.fr/melodi/catalog/all";
+  const response = await fetch(catalogUrl);
   const data: CatalogEntry[] = await response.json();
 
   const ids = data.map((entry) => entry.identifier);
@@ -68,61 +47,13 @@ async function fetchCatalog(): Promise<{
       `/** ${entry.title[0]!.content} \n  ${entry.description[0]!.content} \n ${entry.description[1]!.content} \n */`
   );
 
-  return { ids, descriptions };
+  return { ids, descriptions } as {
+    ids: DatasetIdentifier[];
+    descriptions: string[];
+  };
 }
 
-type MetadataRecord = Record<string, Record<string, string>>;
-
-async function downloadAndExtractZip(
-  id: string
-): Promise<MetadataRecord | null> {
-  try {
-    const response = await fetch(`https://api.insee.fr/melodi/catalog/all`);
-    const data: CatalogEntry[] = await response.json();
-    const entry = data.find((e) => e.identifier === id);
-    if (!entry) {
-      console.log(`Entry not found for ${id}`);
-      return null;
-    }
-    const res = await fetch(entry.product[0]!.accessURL!);
-    const fileContent = await res.arrayBuffer();
-    const fileName = `src/datasetFiles/${id}.zip`;
-    writeFileSync(fileName, Buffer.from(fileContent), null);
-
-    const extractPath = `src/datasetFiles/${id}`;
-    mkdirSync(extractPath, { recursive: true });
-    const zip = new AdmZip(fileName);
-    zip.extractAllTo(extractPath, true);
-
-    // Parse the metadata CSV
-    const metadataCsvPath = `${extractPath}/${id}_metadata.csv`;
-    if (existsSync(metadataCsvPath)) {
-      const csvContent = readFileSync(metadataCsvPath, "utf-8");
-      const parsedCsv = Papa.parse(csvContent, {
-        header: true,
-        skipEmptyLines: true,
-      });
-      const transformedData: MetadataRecord = {};
-      parsedCsv.data.forEach((row: any) => {
-        const { COD_VAR, COD_MOD, LIB_MOD } = row;
-        if (!transformedData[COD_VAR]) {
-          transformedData[COD_VAR] = {};
-        }
-        transformedData[COD_VAR][COD_MOD] = LIB_MOD;
-      });
-
-      console.log(`Transformed metadata for ${id}:`, transformedData);
-      return transformedData;
-    } else {
-      console.log(`Metadata CSV not found for ${id}`);
-      return null;
-    }
-  } catch (error) {
-    console.error(`Error downloading/extracting for ${id}:`, error);
-    return null;
-  }
-}
-
+//XXX: refactor those
 async function generateTypesForDataset(
   id: string,
   description: string,
@@ -131,7 +62,7 @@ async function generateTypesForDataset(
 ): Promise<{ mapEntry: string; importStatement: string } | null> {
   let res;
   try {
-    res = await fetch(`https://api.insee.fr/melodi/data/${id}?maxResult=1`);
+    res = await fetch(`https://api.insee.fr/melodi/data/${id}?maxResult=1000`);
   } catch (error) {
     console.log(`Failed to fetch dataset: ${id}, skipping...`);
     return null;
@@ -260,8 +191,8 @@ async function generateTypesForDataset(
   clearOrCreateFile(fileName);
   appendFileSync(fileName, fileContent, null);
 
-  clearOrCreateFile(jsonFileName);
-  appendFileSync(jsonFileName, dataJson, null);
+  /*   clearOrCreateFile(jsonFileName);
+  appendFileSync(jsonFileName, dataJson, null); */
 
   const mapEntry = `  "${id}": ${idWithoutUnderscores}Shape,\n`;
   const importStatement = `import { ${idWithoutUnderscores}Shape } from "./${id}";\n`;
@@ -290,7 +221,8 @@ async function generateDatasetsShapes(limit?: number) {
     const id = ids[i]!;
     const description = descriptions[i]!;
 
-    const metadata = await downloadAndExtractZip(id);
+    const metadata = await extractMetaData(id);
+
     await new Promise((resolve) => setTimeout(resolve, 500)); // rate limiting
 
     const result = await generateTypesForDataset(id, description, metadata, i);
@@ -315,5 +247,4 @@ async function generateDatasetsShapes(limit?: number) {
   appendFileSync(mapFileName, fullMapContent, null);
 }
 
-/* generateCatalogTypes(); */
-generateDatasetsShapes(1);
+generateDatasetsShapes(3);

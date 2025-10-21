@@ -1,0 +1,3581 @@
+{
+  "code": "DD_CNA_AGREGATS",
+  "label": {
+    "fr": "Produit Intérieur Brut (PIB) et grands agrégats économiques",
+    "en": "Gross domestic product (GDP) and main economic aggregates"
+  },
+  "range": [
+    {
+      "concept": {
+        "code": "PRICES",
+        "label": {
+          "fr": "Valorisation des prix",
+          "en": "Prices"
+        }
+      },
+      "values": [
+        {
+          "code": "V",
+          "label": {
+            "fr": "En valeur aux prix courants",
+            "en": "Current prices"
+          }
+        },
+        {
+          "code": "D",
+          "label": {
+            "fr": "Déflateur",
+            "en": "Deflator (index)"
+          }
+        },
+        {
+          "code": "Y",
+          "label": {
+            "fr": "Aux prix de l’année précédente",
+            "en": "Previous year prices"
+          }
+        },
+        {
+          "code": "L",
+          "label": {
+            "fr": "En volume aux prix de l’année précédente chaînés",
+            "en": "Chain linked volume"
+          }
+        },
+        {
+          "code": "_Z",
+          "label": {
+            "fr": "Non applicable",
+            "en": "Not applicable"
+          }
+        },
+        {
+          "code": "U",
+          "label": {
+            "fr": "Au coût de remplacement",
+            "en": "Current replacement cost"
+          }
+        },
+        {
+          "code": "O",
+          "label": {
+            "fr": "Au coût de remplacement de l’année précédente",
+            "en": "'Previous year''s replacement costs'"
+          }
+        },
+        {
+          "code": "LFA",
+          "label": {
+            "fr": "En volume aux prix de l’année précédente (fin d’année) chaînés",
+            "en": "Chain linked volume (end of year)"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "TRANSFORMATION",
+        "label": {
+          "fr": "Transformation chronologique",
+          "en": "Transformation"
+        }
+      },
+      "values": [
+        {
+          "code": "N",
+          "label": {
+            "fr": "Aucune",
+            "en": "None"
+          }
+        },
+        {
+          "code": "GY_IX",
+          "label": {
+            "fr": "Croissance annuelle de l’indice",
+            "en": "Index growth rate, over 1 year"
+          }
+        },
+        {
+          "code": "GY",
+          "label": {
+            "fr": "Croissance annuelle ",
+            "en": "Growth rate, over 1 year"
+          }
+        },
+        {
+          "code": "GR_IX",
+          "label": {
+            "fr": "Evolution de l’indice en base 100 sur l’année de référence",
+            "en": "Index growth rate, over reference year"
+          }
+        },
+        {
+          "code": "DY",
+          "label": {
+            "fr": "Ecart annuel ",
+            "en": "Spread, over 1 year"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "EXPENDITURE",
+        "label": {
+          "fr": "Type de dépense de consommation",
+          "en": "Expenditure"
+        }
+      },
+      "values": [
+        {
+          "code": "_Z",
+          "label": {
+            "fr": "Total",
+            "en": "Total"
+          }
+        },
+        {
+          "code": "CP1112",
+          "label": {
+            "fr": "Cantines, cafétérias et réfectoires (S)",
+            "en": "Canteens, cafeterias and refectories (S)"
+          }
+        },
+        {
+          "code": "CP04",
+          "label": {
+            "fr": "Logement, eau, gaz, électricité et autres combustibles",
+            "en": "Housing, water, electricity, gas and other fuels"
+          }
+        },
+        {
+          "code": "CP121P_122",
+          "label": {
+            "fr": "Assurances (hors assurance-vie) et services financiers",
+            "en": "Insurances (excluding life insurance) and Financial services"
+          }
+        },
+        {
+          "code": "CP083",
+          "label": {
+            "fr": "Services d’information et de communication",
+            "en": "Information and communication services"
+          }
+        },
+        {
+          "code": "CPDEP",
+          "label": {
+            "fr": "Dépense de consommation des ménages",
+            "en": "Household final consumption expenditure"
+          }
+        },
+        {
+          "code": "CPDPE",
+          "label": {
+            "fr": "Dépense de consommation finale pré-engagée",
+            "en": "Pre-engaged final household consumption expenditure"
+          }
+        },
+        {
+          "code": "CPHDPE",
+          "label": {
+            "fr": "Dépense de consommation autre que pré-engagée",
+            "en": "Final household consumption expenditure other than pre-engaged"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "STO",
+        "label": {
+          "fr": "Opération comptable",
+          "en": "Stock, flow and operation"
+        }
+      },
+      "values": [
+        {
+          "code": "P1",
+          "label": {
+            "fr": "Production",
+            "en": "Output"
+          }
+        },
+        {
+          "code": "P2",
+          "label": {
+            "fr": "Consommation intermédiaire",
+            "en": "Intermediate consumption"
+          }
+        },
+        {
+          "code": "D1",
+          "label": {
+            "fr": "Rémunération des salariés",
+            "en": "Compensation of employees"
+          }
+        },
+        {
+          "code": "B1G",
+          "label": {
+            "fr": "Valeur ajoutée brute",
+            "en": "Gross value added"
+          }
+        },
+        {
+          "code": "D11",
+          "label": {
+            "fr": "Salaires et traitements bruts",
+            "en": "Gross wages and salaries"
+          }
+        },
+        {
+          "code": "B2A3G",
+          "label": {
+            "fr": "Excédent brut d’exploitation et revenu mixte brut",
+            "en": "Gross operating surplus and gross mixed income"
+          }
+        },
+        {
+          "code": "P31",
+          "label": {
+            "fr": "Dépense de consommation individuelle",
+            "en": "Individual consumption expenditure"
+          }
+        },
+        {
+          "code": "B2G",
+          "label": {
+            "fr": "Excédent brut d’exploitation",
+            "en": "Gross operating surplus"
+          }
+        },
+        {
+          "code": "P32",
+          "label": {
+            "fr": "Dépense de consommation collective",
+            "en": "Collective consumption expenditure"
+          }
+        },
+        {
+          "code": "P4",
+          "label": {
+            "fr": "Consommation finale effective",
+            "en": "Actual final consumption"
+          }
+        },
+        {
+          "code": "P51G",
+          "label": {
+            "fr": "Formation brute de capital fixe",
+            "en": "Gross fixed capital formation"
+          }
+        },
+        {
+          "code": "P52",
+          "label": {
+            "fr": "Variation des stocks",
+            "en": "Changes in inventories"
+          }
+        },
+        {
+          "code": "_TC",
+          "label": {
+            "fr": "Taux de couverture",
+            "en": "Trade coverage ratio"
+          }
+        },
+        {
+          "code": "P6",
+          "label": {
+            "fr": "Exportations de biens et services",
+            "en": "Exports of goods and services"
+          }
+        },
+        {
+          "code": "P7",
+          "label": {
+            "fr": "Importations de biens et services",
+            "en": "Imports of goods and services"
+          }
+        },
+        {
+          "code": "B11",
+          "label": {
+            "fr": "Solde des échanges extérieurs de biens et services",
+            "en": "External balance of goods and services"
+          }
+        },
+        {
+          "code": "P3",
+          "label": {
+            "fr": "Dépense de consommation finale",
+            "en": "Final consumption expenditure"
+          }
+        },
+        {
+          "code": "_TI",
+          "label": {
+            "fr": "Taux d’investissement",
+            "en": "Investment rate"
+          }
+        },
+        {
+          "code": "P53",
+          "label": {
+            "fr": "Acquisitions moins cessions d’objets de valeur",
+            "en": "Acquisitions minus disposals of valuables"
+          }
+        },
+        {
+          "code": "_REM",
+          "label": {
+            "fr": "Rémunérations des salariés / valeur ajoutée brute",
+            "en": "Compensation of employees/gross value added"
+          }
+        },
+        {
+          "code": "D121",
+          "label": {
+            "fr": "Cotisations sociales effectives à la charge des employeurs",
+            "en": "'Employers' actual social contributions"
+          }
+        },
+        {
+          "code": "D21",
+          "label": {
+            "fr": "Impôts sur les produits",
+            "en": "Taxes on products"
+          }
+        },
+        {
+          "code": "D122",
+          "label": {
+            "fr": "Cotisations sociales imputées à la charge des employeurs",
+            "en": "'Employers' imputed social contributions"
+          }
+        },
+        {
+          "code": "_IMP",
+          "label": {
+            "fr": "Impôts sur la production / valeur ajoutée brute",
+            "en": "Taxes on production/gross value added "
+          }
+        },
+        {
+          "code": "D29",
+          "label": {
+            "fr": "Autres impôts sur la production",
+            "en": "Other taxes on production"
+          }
+        },
+        {
+          "code": "D291",
+          "label": {
+            "fr": "Impôts sur les salaires et la main d’œuvre",
+            "en": "Taxes on wages and labor"
+          }
+        },
+        {
+          "code": "D2",
+          "label": {
+            "fr": "Impôts sur la production et les importations",
+            "en": "Taxes on production and imports"
+          }
+        },
+        {
+          "code": "D292",
+          "label": {
+            "fr": "Impôts divers sur la production",
+            "en": "Miscellaneous taxes on production"
+          }
+        },
+        {
+          "code": "D3",
+          "label": {
+            "fr": "Subventions",
+            "en": "Subsidies"
+          }
+        },
+        {
+          "code": "D31",
+          "label": {
+            "fr": "Subventions sur les produits",
+            "en": "Subsidies on products"
+          }
+        },
+        {
+          "code": "D39",
+          "label": {
+            "fr": "Autres subventions sur la production",
+            "en": "Other subsidies on production"
+          }
+        },
+        {
+          "code": "TS_CE",
+          "label": {
+            "fr": "Total des emplois ",
+            "en": "Total uses"
+          }
+        },
+        {
+          "code": "TC_CE",
+          "label": {
+            "fr": "Total des charges",
+            "en": "Total expenses"
+          }
+        },
+        {
+          "code": "TU_CE",
+          "label": {
+            "fr": "Total des ressources",
+            "en": "Total  resources"
+          }
+        },
+        {
+          "code": "B1GQ",
+          "label": {
+            "fr": "Produit intérieur brut",
+            "en": "Gross domestic product"
+          }
+        },
+        {
+          "code": "_PART_VAENF",
+          "label": {
+            "fr": "Part de la valeur ajoutée des ei dans la valeur ajoutée totale des enf",
+            "en": "Share of value added of sole proprietorships in total value added of non-financial enterprises"
+          }
+        },
+        {
+          "code": "_TM1",
+          "label": {
+            "fr": "Taux de marge",
+            "en": "Profit margin"
+          }
+        },
+        {
+          "code": "B3G",
+          "label": {
+            "fr": "Revenu mixte brut",
+            "en": "Gross mixed income"
+          }
+        },
+        {
+          "code": "_REVENU",
+          "label": {
+            "fr": "Revenu mixte brut des ei / excédent brut d’exploitation et revenu mixte brut des enf",
+            "en": "Gross mixed income of sole proprietorships/ gross operating surplus and gross mixed income of non-financial enterprises"
+          }
+        },
+        {
+          "code": "_TM2",
+          "label": {
+            "fr": "Taux de marge",
+            "en": "Profit margin"
+          }
+        },
+        {
+          "code": "B5GQ",
+          "label": {
+            "fr": "Revenu national brut",
+            "en": "Gross national income /Net national income"
+          }
+        },
+        {
+          "code": "_RNB_HABITANT",
+          "label": {
+            "fr": "Revenu national brut par habitant",
+            "en": "Gross national income per capita"
+          }
+        },
+        {
+          "code": "B6GQ",
+          "label": {
+            "fr": "Revenu national disponible brut",
+            "en": "Gross national disposable income"
+          }
+        },
+        {
+          "code": "_TAF",
+          "label": {
+            "fr": "Taux d’autofinancement",
+            "en": "Self-financing rate"
+          }
+        },
+        {
+          "code": "_TX_EE",
+          "label": {
+            "fr": "Taux d’épargne des entreprises",
+            "en": "Corporate saving rate"
+          }
+        },
+        {
+          "code": "B9",
+          "label": {
+            "fr": "Capacité (+) ou besoin (-) de financement",
+            "en": "Net lending(+) / net borrowing (-)"
+          }
+        },
+        {
+          "code": "_CANTINE_REVENU",
+          "label": {
+            "fr": "Part des cantines dans le revenu disponible brut",
+            "en": "Share of canteen in gross disposable income"
+          }
+        },
+        {
+          "code": "_DEP_LOGT_REVENU",
+          "label": {
+            "fr": "Part de la dépense liée au logement dans le revenu disponible brut",
+            "en": "Share of expenditure related to housing in gross disposable income"
+          }
+        },
+        {
+          "code": "_ASSUR_REVENU",
+          "label": {
+            "fr": "Part des assurances (hors assurance-vie) et services financiers dans le revenu disponible brut",
+            "en": "Share of insurance (excluding life insurance) and financial services in gross disposable income"
+          }
+        },
+        {
+          "code": "_TELE_REVENU",
+          "label": {
+            "fr": "Part des services de télévision et de télécommunications dans le revenu disponible brut",
+            "en": "Share of television and telecommunication services in gross disposable income"
+          }
+        },
+        {
+          "code": "_DEP_REVENU",
+          "label": {
+            "fr": "Part de la dépense pré-engagée dans le revenu disponible brut",
+            "en": "Share of pre-engaged exenditure in gross disposable income"
+          }
+        },
+        {
+          "code": "_DEP_CONSO",
+          "label": {
+            "fr": "Part de la dépense pré-engagée dans la dépense de consommation finale des ménages",
+            "en": "Share of pre-engaged expenditure in final household consumption expenditure"
+          }
+        },
+        {
+          "code": "_COEFF_BUDG",
+          "label": {
+            "fr": "Coefficient budgétaire",
+            "en": "Budget coefficient"
+          }
+        },
+        {
+          "code": "_COEFF_BUDG_P31",
+          "label": {
+            "fr": "Coefficient budgétaire"
+          }
+        },
+        {
+          "code": "EMP",
+          "label": {
+            "fr": "Emploi total (peut être en personnes physiques, équivalent temps plein ou en heures travaillées)",
+            "en": "Total employment (can be in persons, full time equivalent of hours worked) "
+          }
+        },
+        {
+          "code": "_PHT",
+          "label": {
+            "fr": "Productivité horaire du travail (pht)",
+            "en": "Hourly labour productivity "
+          }
+        },
+        {
+          "code": "SELF",
+          "label": {
+            "fr": "Emploi des travailleurs indépendants dans les unités de production résidentes (peut être en personnes physiques, équivalent temps plein ou en heures travaillées)",
+            "en": "Employment of self-employed in resident production units (can be in persons, full time equivalent of hours worked)"
+          }
+        },
+        {
+          "code": "SAL",
+          "label": {
+            "fr": "Emploi des salariés dans les unités de production résidentes (peut être en personnes physiques, équivalent temps plein ou en heures travaillées)",
+            "en": "Employment of employees in resident production units (can be in persons, full time equivalent of hours worked)"
+          }
+        },
+        {
+          "code": "SALD",
+          "label": {
+            "fr": "Emploi déclaré des salariés dans les unités de production résidentes (peut être en personnes physiques, équivalent temps plein ou en heures travaillées)",
+            "en": "Declared employment of employees in resident production units (can be in persons, full time equivalent of hours worked)"
+          }
+        },
+        {
+          "code": "P1O",
+          "label": {
+            "fr": "Production marchande, production pour emploi final propre et paiements au titre de la production non marchande",
+            "en": "Market output, output for own final use and payments for other non-market output"
+          }
+        },
+        {
+          "code": "P1M",
+          "label": {
+            "fr": "Production marchande et production pour usage final propre",
+            "en": "Market output and output for own final use"
+          }
+        },
+        {
+          "code": "P131",
+          "label": {
+            "fr": "Paiements au titre de la production non marchande",
+            "en": "Payments for other non-market output"
+          }
+        },
+        {
+          "code": "P132",
+          "label": {
+            "fr": "Autre production non marchande",
+            "en": "Other non-market output, n.e.c."
+          }
+        },
+        {
+          "code": "P5M",
+          "label": {
+            "fr": "Variation stocks + Acquis, moins cessions objets valeur (OPP52+OPP53)",
+            "en": "Changes in inventories and acquisition minus disposals of valuables"
+          }
+        },
+        {
+          "code": "D91",
+          "label": {
+            "fr": "Impôts en capital",
+            "en": "Capital taxes"
+          }
+        },
+        {
+          "code": "CONTRIB_PIB_P3",
+          "label": {
+            "fr": "Contribution à l’évolution du PIB de la dépense de consommation finale",
+            "en": "Contribution of final consumption expenditure to GDP growth"
+          }
+        },
+        {
+          "code": "CONTRIB_PIB_P31",
+          "label": {
+            "fr": "Contribution à l’évolution du PIB de la dépense de consommation individuelle",
+            "en": "Contribution of individual consumption expenditure to GDP growth"
+          }
+        },
+        {
+          "code": "CONTRIB_PIB_P32",
+          "label": {
+            "fr": "Contribution à l’évolution du PIB de la dépense de consommation collective",
+            "en": "Contribution of collective consumption expenditure to GDP growth"
+          }
+        },
+        {
+          "code": "P5",
+          "label": {
+            "fr": "Formation brute de capital/Formation nette de capital",
+            "en": "Gross capital formation"
+          }
+        },
+        {
+          "code": "CONTRIB_PIB_P51G",
+          "label": {
+            "fr": "Contribution à l’évolution du PIB de la FBCF",
+            "en": "Contribution of gross fixed capital formation to GDP growth"
+          }
+        },
+        {
+          "code": "CONTRIB_PIB_P52",
+          "label": {
+            "fr": "Contribution à l’évolution du PIB de la variation des stocks",
+            "en": "Contribution of inventory change to GDP growth"
+          }
+        },
+        {
+          "code": "CONTRIB_PIB_P53",
+          "label": {
+            "fr": "Contribution à l’évolution du PIB des acquisitions moins cessions d’objets de valeur",
+            "en": "Contribution of acquisitions less disposals of valuables to GDP growth"
+          }
+        },
+        {
+          "code": "CONTRIB_PIB_P6",
+          "label": {
+            "fr": "Contribution à l’évolution du PIB du solde des exportations",
+            "en": "Contribution of exportations to GDP growth"
+          }
+        },
+        {
+          "code": "CONTRIB_PIB_P7",
+          "label": {
+            "fr": "Contribution à l’évolution du PIB du solde des importations",
+            "en": "Contribution of importations to GDP growth"
+          }
+        },
+        {
+          "code": "DINT",
+          "label": {
+            "fr": "Total de la demande intérieure en produits",
+            "en": "Total domestic demand in goods"
+          }
+        },
+        {
+          "code": "DINT_S",
+          "label": {
+            "fr": "Demande intérieure hors stocks",
+            "en": "Domestic demand excluding inventory change"
+          }
+        },
+        {
+          "code": "TFU",
+          "label": {
+            "fr": "Total des emplois finaux",
+            "en": "Total final use"
+          }
+        },
+        {
+          "code": "TSBP",
+          "label": {
+            "fr": "Total ressources prix de base",
+            "en": "Total resources at basic price"
+          }
+        },
+        {
+          "code": "D12",
+          "label": {
+            "fr": "Cotisations sociales à la charge des employeurs",
+            "en": "'Employers' social contributions"
+          }
+        },
+        {
+          "code": "D2X3",
+          "label": {
+            "fr": "Impôts sur production et importations, moins subventions (D2+D3)",
+            "en": "Taxes on production and imports less subsidies"
+          }
+        },
+        {
+          "code": "_PIB_HABITANT",
+          "label": {
+            "fr": "PIB par habitant",
+            "en": "Gross domestic product per capita"
+          }
+        },
+        {
+          "code": "CONTRIB_PIB_B1GQ",
+          "label": {
+            "fr": "Variation du PIB",
+            "en": "GDP growth"
+          }
+        },
+        {
+          "code": "_RNB_REEL",
+          "label": {
+            "fr": "Revenu national brut en termes réels",
+            "en": "Gross national income in real terms "
+          }
+        },
+        {
+          "code": "CONTRIB_PIB_B11",
+          "label": {
+            "fr": "Contribution à l’évolution du PIB du solde des échanges extérieurs",
+            "en": "Contribution of external balance of goods and services to GDP growth"
+          }
+        },
+        {
+          "code": "_RNB_REEL_HABITANT",
+          "label": {
+            "fr": "Revenu national brut en termes réels par habitant",
+            "en": "Gross national income in real terms per capita"
+          }
+        },
+        {
+          "code": "KA_P5",
+          "label": {
+            "fr": "Formation brute de capital/Formation nette de capital en autres changements de volume et ajustements",
+            "en": "Gross capital formation, other changes excluding revaluations"
+          }
+        },
+        {
+          "code": "K7_P5",
+          "label": {
+            "fr": "Formation brute de capital/Formation nette de capital en gains/pertes nominaux de détention",
+            "en": "Gross capital formation/Net capital formation in nominal holding gains/losses"
+          }
+        },
+        {
+          "code": "K7_P51G",
+          "label": {
+            "fr": "Formation brute de capital fixe en gains/pertes nominaux de détention",
+            "en": "Gross fixed capital formation in nominal holding gains/losses"
+          }
+        },
+        {
+          "code": "KA_P52",
+          "label": {
+            "fr": "Variation des stocks en autres changements de volume et ajustements",
+            "en": "Inventory change, other changes excluding revaluations"
+          }
+        },
+        {
+          "code": "K7_P52",
+          "label": {
+            "fr": "Variation des stocks en gains/pertes nominaux de détention",
+            "en": "Change in inventories in nominal holding gains/losses"
+          }
+        },
+        {
+          "code": "K7_P53",
+          "label": {
+            "fr": "Acquisitions moins cessions d’objets de valeur en gains/pertes nominaux de détention",
+            "en": "Acquisitions less disposals of valuables in nominal holding gains/losses"
+          }
+        },
+        {
+          "code": "LE",
+          "label": {
+            "fr": "Clôture du bilan/positions/flux",
+            "en": "Closing balance sheet/Positions/Stocks"
+          }
+        },
+        {
+          "code": "POP",
+          "label": {
+            "fr": "Population",
+            "en": "Population"
+          }
+        },
+        {
+          "code": "POPM",
+          "label": {
+            "fr": "Moyenne annuelle de la population en France métropolitaine",
+            "en": "Annual average  population of metropolitan France"
+          }
+        },
+        {
+          "code": "MENF",
+          "label": {
+            "fr": "Moyenne annuelle du nombre de ménages en France entière",
+            "en": "Annual average number of households in France"
+          }
+        },
+        {
+          "code": "MENM",
+          "label": {
+            "fr": "Moyenne annuelle du nombre de ménages en France métropolitaine",
+            "en": "Annual average number of households in metropolitan France"
+          }
+        },
+        {
+          "code": "UC",
+          "label": {
+            "fr": "Unités de consommation",
+            "en": "Consumption unit"
+          }
+        },
+        {
+          "code": "_PAM",
+          "label": {
+            "fr": "Pouvoir d’achat du rdb des ménages",
+            "en": "Purchasing power of households gross disposable income"
+          }
+        },
+        {
+          "code": "_PAA",
+          "label": {
+            "fr": "Pouvoir d’achat du rdb arbitrable des ménages",
+            "en": "Purchasing power of discretionary gross disposable household  income"
+          }
+        },
+        {
+          "code": "P5K",
+          "label": {
+            "fr": "Autres acquisitions moins cessions d’actifs non financiers",
+            "en": "Other acquisitions minus disposals of non-financial assets"
+          }
+        },
+        {
+          "code": "RSS",
+          "label": {
+            "fr": "Revenus salariaux et sociaux",
+            "en": "Wage and social income"
+          }
+        },
+        {
+          "code": "D11X613CE",
+          "label": {
+            "fr": "Salaires et traitements nets",
+            "en": "Net wages and salaries"
+          }
+        },
+        {
+          "code": "D4",
+          "label": {
+            "fr": "Revenus de la propriété",
+            "en": "Property income"
+          }
+        },
+        {
+          "code": "D5",
+          "label": {
+            "fr": "Impôts courants sur le revenu, le patrimoine, etc.",
+            "en": "Current taxes on income, wealth, etc."
+          }
+        },
+        {
+          "code": "D61",
+          "label": {
+            "fr": "Cotisations sociales nettes",
+            "en": "Net social contributions"
+          }
+        },
+        {
+          "code": "D613CE",
+          "label": {
+            "fr": "Cotisations sociales effectives obligatoires à la charge des salariés",
+            "en": "Compulsory employees’ actual social contributions"
+          }
+        },
+        {
+          "code": "D613NSI",
+          "label": {
+            "fr": "Cotisations des non salariés",
+            "en": "Non-employees contributions"
+          }
+        },
+        {
+          "code": "D62",
+          "label": {
+            "fr": "Prestations sociales autres que transferts sociaux en nature",
+            "en": "Social benefits other than social transfers in kind"
+          }
+        },
+        {
+          "code": "D63",
+          "label": {
+            "fr": "Transferts sociaux en nature",
+            "en": "Social transfers in kind"
+          }
+        },
+        {
+          "code": "D7",
+          "label": {
+            "fr": "Autres transferts courants",
+            "en": "Other current transfers"
+          }
+        },
+        {
+          "code": "D9P",
+          "label": {
+            "fr": "Transferts en capital à payer",
+            "en": "Capital transfers payable"
+          }
+        },
+        {
+          "code": "D9R",
+          "label": {
+            "fr": "Transferts en capital à recevoir",
+            "en": "Capital transfers receivable "
+          }
+        },
+        {
+          "code": "P3_DPE",
+          "label": {
+            "fr": "Dépense de consommation finale pré-engagée",
+            "en": "Final consumption expenditure – pre-committed"
+          }
+        },
+        {
+          "code": "P3_H_DPE",
+          "label": {
+            "fr": "Dépense de consommation finale autre que pré-engagée",
+            "en": "Final consumption expenditure – other than pre-committed"
+          }
+        },
+        {
+          "code": "TSF",
+          "label": {
+            "fr": "Solde des transferts sociaux et fiscaux",
+            "en": "Balance of social and fiscal transfers"
+          }
+        },
+        {
+          "code": "B5G",
+          "label": {
+            "fr": "Solde brut des revenus primaires",
+            "en": "Gross primary income balance/GNI"
+          }
+        },
+        {
+          "code": "B6G",
+          "label": {
+            "fr": "Revenu disponible brut",
+            "en": "Gross disposable income"
+          }
+        },
+        {
+          "code": "B7G",
+          "label": {
+            "fr": "Revenu disponible brut ajusté",
+            "en": "Adjusted gross disposable income"
+          }
+        },
+        {
+          "code": "B8G",
+          "label": {
+            "fr": "Épargne brute",
+            "en": "Gross savings"
+          }
+        },
+        {
+          "code": "_TEM",
+          "label": {
+            "fr": "Taux d’épargne des ménages",
+            "en": "Household saving rate"
+          }
+        },
+        {
+          "code": "_TEFM",
+          "label": {
+            "fr": "Taux d’épargne financière des ménages",
+            "en": "Household financial saving rate"
+          }
+        },
+        {
+          "code": "D9PXR",
+          "label": {
+            "fr": "Transferts en capital reçus diminués des transferts versés",
+            "en": "Capital transfers received minus capital paid"
+          }
+        },
+        {
+          "code": "D4NET",
+          "label": {
+            "fr": "Revenus de la propriété reçus diminués des revenus versés",
+            "en": "Property income received minus income paid"
+          }
+        },
+        {
+          "code": "RARBI",
+          "label": {
+            "fr": "Revenu disponible arbitrable",
+            "en": "Discretionary disposable  income"
+          }
+        },
+        {
+          "code": "TRANSF_COURANT",
+          "label": {
+            "fr": "Solde des transferts courants (reçus moins versés)",
+            "en": "Balance of current transfers (received less paid)"
+          }
+        },
+        {
+          "code": "_PAA_UC",
+          "label": {
+            "fr": "Pouvoir d’achat du rdb arbitrable par unité de consommation",
+            "en": "Purchasing power of discretionary GDI per unit of consumption"
+          }
+        },
+        {
+          "code": "_PAA_MENAGE",
+          "label": {
+            "fr": "Pouvoir d’achat du rdb arbitrable par ménage",
+            "en": "Purchasing power of discretionary GDI per household"
+          }
+        },
+        {
+          "code": "_PAA_PERSONNE",
+          "label": {
+            "fr": "Pouvoir d’achat du rdb arbitrable par personne",
+            "en": "Purchasing power of discretionary GDI per capita"
+          }
+        },
+        {
+          "code": "_PAM_MENAGE",
+          "label": {
+            "fr": "Pouvoir d’achat du rdb par ménage",
+            "en": "Purchasing power of gross disposable income per household"
+          }
+        },
+        {
+          "code": "_PAM_PERSONNE",
+          "label": {
+            "fr": "Pouvoir d’achat du rdb par personne",
+            "en": "Purchasing power of gross disposable income per capita"
+          }
+        },
+        {
+          "code": "_PAM_UC",
+          "label": {
+            "fr": "Pouvoir d’achat du rdb par unité de consommation",
+            "en": "Purchasing power of gross disposable income per unit of consumption"
+          }
+        },
+        {
+          "code": "P311",
+          "label": {
+            "fr": "Dépense de consommation individuelle Biens durables",
+            "en": "Individual consumption expenditure of Durable Goods"
+          }
+        },
+        {
+          "code": "P312",
+          "label": {
+            "fr": "Dépense de consommation individuelle Biens semi-durables",
+            "en": "Individual consumption expenditure of Semi-Durable Goods"
+          }
+        },
+        {
+          "code": "P313",
+          "label": {
+            "fr": "Dépense de consommation individuelle Biens non durables",
+            "en": "Individual consumption expenditure of Non-Durable Goods"
+          }
+        },
+        {
+          "code": "P314",
+          "label": {
+            "fr": "Dépense de consommation individuelle Services",
+            "en": "Individual consumption expenditure of Services"
+          }
+        },
+        {
+          "code": "P31K",
+          "label": {
+            "fr": "Dépense de consommation individuelle Total hors biens durables",
+            "en": "Individual consumption expenditure of semi-durable and non-durable goods and services"
+          }
+        },
+        {
+          "code": "P41",
+          "label": {
+            "fr": "Consommation individuelle effective",
+            "en": "Actual individual consumption"
+          }
+        },
+        {
+          "code": "P61",
+          "label": {
+            "fr": "Exportations de biens",
+            "en": "Exports of goods"
+          }
+        },
+        {
+          "code": "P62",
+          "label": {
+            "fr": "Exportation de services",
+            "en": "Exports of services"
+          }
+        },
+        {
+          "code": "P71",
+          "label": {
+            "fr": "Importations de biens",
+            "en": "Imports of goods"
+          }
+        },
+        {
+          "code": "P72",
+          "label": {
+            "fr": "Importations de services",
+            "en": "Imports of services"
+          }
+        },
+        {
+          "code": "D21X31",
+          "label": {
+            "fr": "Impôts moins subventions sur les produits (D21+D31)",
+            "en": "Taxes less subsidies on products"
+          }
+        },
+        {
+          "code": "P51C",
+          "label": {
+            "fr": "Consommation de capital fixe",
+            "en": "Consumption of fixed capital"
+          }
+        },
+        {
+          "code": "D29X39",
+          "label": {
+            "fr": "Autres impôts sur la production moins autres subventions sur la production",
+            "en": "Other taxes on production minus other subsidies on production"
+          }
+        },
+        {
+          "code": "B2A3N",
+          "label": {
+            "fr": "Excédent d’exploitation/revenu mixte net de CCF",
+            "en": "Operating surplus/mixed income net of consumption of fixed capital"
+          }
+        },
+        {
+          "code": "P11",
+          "label": {
+            "fr": "Production marchande",
+            "en": "Market output"
+          }
+        },
+        {
+          "code": "P12",
+          "label": {
+            "fr": "Production pour usage final propre",
+            "en": "Output for own final use"
+          }
+        },
+        {
+          "code": "P13",
+          "label": {
+            "fr": "Production non marchande",
+            "en": "Non-market output"
+          }
+        },
+        {
+          "code": "NP",
+          "label": {
+            "fr": "Acquisitions moins cessions d’actifs non produits",
+            "en": "Acquisitions minus disposals of non-produced assets"
+          }
+        },
+        {
+          "code": "D211",
+          "label": {
+            "fr": "Taxes de type TVA",
+            "en": "Value added type taxes"
+          }
+        },
+        {
+          "code": "D212",
+          "label": {
+            "fr": "Impôts et droits sur les importations, à l’exclusion de la TVA",
+            "en": "Taxes and duties on imports excluding Value Added Tax"
+          }
+        },
+        {
+          "code": "D214",
+          "label": {
+            "fr": "Impôts sur les produits, à l‘exclusion de la TVA et des impôts sur les importations",
+            "en": "Taxes on products except Value Added Tax, import and export taxes"
+          }
+        },
+        {
+          "code": "D391",
+          "label": {
+            "fr": "Subventions sur rémunérations",
+            "en": "Wages subsidies"
+          }
+        },
+        {
+          "code": "D392",
+          "label": {
+            "fr": "Bonifications d’intérêts",
+            "en": "Interest subsidies"
+          }
+        },
+        {
+          "code": "D399",
+          "label": {
+            "fr": "Autres subventions d’exploitation",
+            "en": "Other operating grants"
+          }
+        },
+        {
+          "code": "D41",
+          "label": {
+            "fr": "Intérêts",
+            "en": "Interest"
+          }
+        },
+        {
+          "code": "D42",
+          "label": {
+            "fr": "Revenus distribués des sociétés",
+            "en": "Distributed income of corporations"
+          }
+        },
+        {
+          "code": "D421",
+          "label": {
+            "fr": "Dividendes",
+            "en": "Dividends"
+          }
+        },
+        {
+          "code": "D422",
+          "label": {
+            "fr": "Prélèvements sur les revenus des quasi-sociétés",
+            "en": "Withdrawals from income of quasi-corporations"
+          }
+        },
+        {
+          "code": "D43",
+          "label": {
+            "fr": "Bénéfices réinvestis d’investissements directs étrangers",
+            "en": "Reinvested earnings on FDI (Excluding IF)"
+          }
+        },
+        {
+          "code": "D44",
+          "label": {
+            "fr": "Revenus d’investissements",
+            "en": "Other investment income"
+          }
+        },
+        {
+          "code": "D45",
+          "label": {
+            "fr": "Loyers",
+            "en": "Rent"
+          }
+        },
+        {
+          "code": "D51",
+          "label": {
+            "fr": "Impôts sur le revenu",
+            "en": "Taxes on income assessed but unlikely to be collected"
+          }
+        },
+        {
+          "code": "D59",
+          "label": {
+            "fr": "Autres impôts courants",
+            "en": "Other current taxes"
+          }
+        },
+        {
+          "code": "D611",
+          "label": {
+            "fr": "Cotisations sociales effectives à la charge des employeurs",
+            "en": "Employers’ actual social contributions"
+          }
+        },
+        {
+          "code": "D612",
+          "label": {
+            "fr": "Cotisations sociales imputées à la charge des employeurs",
+            "en": "Employers’ imputed social contributions"
+          }
+        },
+        {
+          "code": "D613",
+          "label": {
+            "fr": "Cotisations sociales effectives à la charge des ménages",
+            "en": "Households’ actual social contributions"
+          }
+        },
+        {
+          "code": "D613CS",
+          "label": {
+            "fr": "Cotisations sociales effectives à la charge des travailleurs indépendants",
+            "en": "Compulsory actual social contributions by the self-employed"
+          }
+        },
+        {
+          "code": "D614",
+          "label": {
+            "fr": "Suppléments de cotisations sociales à la charge des ménages",
+            "en": "Households’ social contribution supplements"
+          }
+        },
+        {
+          "code": "D61SC",
+          "label": {
+            "fr": "Rémunération du service des régimes d’assurance sociale",
+            "en": "Social insurance scheme service charges (-)"
+          }
+        },
+        {
+          "code": "D621",
+          "label": {
+            "fr": "Prestations de sécurité sociale en espèces",
+            "en": "Social security benefits in cash"
+          }
+        },
+        {
+          "code": "D622",
+          "label": {
+            "fr": "Autres prestations d’assurance sociale",
+            "en": "Other social insurance benefits"
+          }
+        },
+        {
+          "code": "D623",
+          "label": {
+            "fr": "Prestations d’assurance sociale en espèces",
+            "en": "Social assistance benefits in cash"
+          }
+        },
+        {
+          "code": "D631",
+          "label": {
+            "fr": "Transferts sociaux en nature – production non marchande",
+            "en": "Social transfers in kind - non-market production"
+          }
+        },
+        {
+          "code": "D632",
+          "label": {
+            "fr": "Transferts sociaux en nature – production marchande achetée",
+            "en": "Social transfers in kind - purchased market production"
+          }
+        },
+        {
+          "code": "D7S",
+          "label": {
+            "fr": "Autres transferts courants (voir note)",
+            "en": "Other current transfers (see footnote)"
+          }
+        },
+        {
+          "code": "D71",
+          "label": {
+            "fr": "Primes nettes d’assurance-dommages",
+            "en": "Net non-life insurance premiums"
+          }
+        },
+        {
+          "code": "D72",
+          "label": {
+            "fr": "Indemnités d’assurance-dommages",
+            "en": "Non-life insurance claims"
+          }
+        },
+        {
+          "code": "D73",
+          "label": {
+            "fr": "Transferts courants entre administrations publiques",
+            "en": "Current transfers within general government"
+          }
+        },
+        {
+          "code": "D731",
+          "label": {
+            "fr": "Transferts courants entre sous-secteurs des apu",
+            "en": "Current transfers between general government subsectors"
+          }
+        },
+        {
+          "code": "D74",
+          "label": {
+            "fr": "Coopération internationale courante",
+            "en": "Current international cooperation"
+          }
+        },
+        {
+          "code": "D732",
+          "label": {
+            "fr": "Transferts courants internes aux sous-secteurs des apu",
+            "en": "Current transfers within general government subsectors"
+          }
+        },
+        {
+          "code": "D733",
+          "label": {
+            "fr": "Transferts de recettes fiscales",
+            "en": "Taxes transfers"
+          }
+        },
+        {
+          "code": "D73S",
+          "label": {
+            "fr": "Transferts courants entre administrations publiques (solde) (voir note)",
+            "en": "Current transfers between general governments (balance) (see footnote)"
+          }
+        },
+        {
+          "code": "D75",
+          "label": {
+            "fr": "Transferts courants divers",
+            "en": "Miscellaneous current transfers"
+          }
+        },
+        {
+          "code": "D751",
+          "label": {
+            "fr": "Transferts courants aux ISBLSM",
+            "en": "Current transfers to NPISHs"
+          }
+        },
+        {
+          "code": "D752",
+          "label": {
+            "fr": "Transferts courants entre ménages",
+            "en": "Current transfers between resident and non-resident households"
+          }
+        },
+        {
+          "code": "D759",
+          "label": {
+            "fr": "Autres transferts courants divers",
+            "en": "Other miscellaneous current transfers"
+          }
+        },
+        {
+          "code": "D76",
+          "label": {
+            "fr": "Ressources propres de l’UE fondées sur la TVA et le RNB",
+            "en": "Value Added Tax and GNI - based EU own resources"
+          }
+        },
+        {
+          "code": "D8",
+          "label": {
+            "fr": "Ajustement pour variation des droits à pension",
+            "en": "Adjustment for the change in pension entitlements"
+          }
+        },
+        {
+          "code": "D91P",
+          "label": {
+            "fr": "Impôts en capital à payer",
+            "en": "Capital taxes payable"
+          }
+        },
+        {
+          "code": "D91R",
+          "label": {
+            "fr": "Impôts en capital à recevoir",
+            "en": "Capital taxes receivable"
+          }
+        },
+        {
+          "code": "D92P",
+          "label": {
+            "fr": "Aides à l’investissement à payer",
+            "en": "Investment grants payable"
+          }
+        },
+        {
+          "code": "D92R",
+          "label": {
+            "fr": "Aides à l’investissement à recevoir",
+            "en": "Investment grants receivable"
+          }
+        },
+        {
+          "code": "D99P",
+          "label": {
+            "fr": "Autres transferts en capital à payer",
+            "en": "Other capital transfers payable"
+          }
+        },
+        {
+          "code": "D99R",
+          "label": {
+            "fr": "Autres transferts en capital à recevoir",
+            "en": "Other capital transfers receivable"
+          }
+        },
+        {
+          "code": "B1N",
+          "label": {
+            "fr": "Valeur ajoutée nette de CCF",
+            "en": "Value added net of consumption of fixed capital"
+          }
+        },
+        {
+          "code": "B2N",
+          "label": {
+            "fr": "Excédent d’exploitation net de CCF",
+            "en": "Operating surplus, net of consumption of fixed capital"
+          }
+        },
+        {
+          "code": "B3N",
+          "label": {
+            "fr": "Revenu mixte net de CCF",
+            "en": "Mixed income, net of consumption of fixed capital"
+          }
+        },
+        {
+          "code": "B5N",
+          "label": {
+            "fr": "Solde des revenus primaires net de CCF",
+            "en": "Balance of primary income net of consumption of fixed capital"
+          }
+        },
+        {
+          "code": "B6N",
+          "label": {
+            "fr": "Revenu disponible net de CCF",
+            "en": "Disposable income, net of consumption of fixed capital"
+          }
+        },
+        {
+          "code": "B7N",
+          "label": {
+            "fr": "Revenu disponible ajusté net de CCF",
+            "en": "Adjusted disposable income, net of consumpton of fixed capital"
+          }
+        },
+        {
+          "code": "B8N",
+          "label": {
+            "fr": "Épargne brute net de CCF",
+            "en": "Savings net of consumption of fixed capital"
+          }
+        },
+        {
+          "code": "B12",
+          "label": {
+            "fr": "Solde des opérations courantes avec l’extérieur",
+            "en": "External current account balance"
+          }
+        },
+        {
+          "code": "YA2",
+          "label": {
+            "fr": "Divergence statistique",
+            "en": "Statistical discrepancy"
+          }
+        },
+        {
+          "code": "YA1",
+          "label": {
+            "fr": "Divergence statistique (approche par la production)",
+            "en": "Statistical discrepancy (production approach)"
+          }
+        },
+        {
+          "code": "YA0",
+          "label": {
+            "fr": "Divergence statistique (approche par les dépenses)",
+            "en": "Statistical discrepancy (expenditure approach)"
+          }
+        },
+        {
+          "code": "P62F",
+          "label": {
+            "fr": "Exportation de SIFIM",
+            "en": "Exports of FISIM"
+          }
+        },
+        {
+          "code": "P72F",
+          "label": {
+            "fr": "Importations de SIFIM",
+            "en": "Imports of FISIM"
+          }
+        },
+        {
+          "code": "D2121",
+          "label": {
+            "fr": "Droits sur les importations",
+            "en": "Import duties"
+          }
+        },
+        {
+          "code": "D2122",
+          "label": {
+            "fr": "Impôts sur les importations, à l’exclusion de la TVA et des droits sur les importations",
+            "en": "Taxes on imports excluding Value Added Tax and duties"
+          }
+        },
+        {
+          "code": "D41G",
+          "label": {
+            "fr": "Intérêts bruts de correction SIFIM",
+            "en": "Interest before FISIM allocation"
+          }
+        },
+        {
+          "code": "D441",
+          "label": {
+            "fr": "Revenus d’investissements attribués aux assurés",
+            "en": "Investment income attributable to insurance policy holders"
+          }
+        },
+        {
+          "code": "D442",
+          "label": {
+            "fr": "Revenus d’investissements à payer sur les droits de pension",
+            "en": "Investment income payable on pension entitlements"
+          }
+        },
+        {
+          "code": "D443",
+          "label": {
+            "fr": "Revenus d’investissements attribués aux détenteurs de parts de fonds d’investissement",
+            "en": "Investment income attributable to collective investment fund share holders"
+          }
+        },
+        {
+          "code": "D6",
+          "label": {
+            "fr": "Cotisations et prestations sociales",
+            "en": "Social contributions and social benefits"
+          }
+        },
+        {
+          "code": "D613CN",
+          "label": {
+            "fr": "Cotisations sociales effectives à la charge des personnes n’occupant pas un emploi",
+            "en": "Compulsory actual social contributions by the non-employed"
+          }
+        },
+        {
+          "code": "D613V",
+          "label": {
+            "fr": "Cotisations sociales effectives volontaires des ménages",
+            "en": "Voluntary households’ actual social contributions"
+          }
+        },
+        {
+          "code": "D92",
+          "label": {
+            "fr": "Aides à l’investissement",
+            "en": "Investment grants"
+          }
+        },
+        {
+          "code": "D99",
+          "label": {
+            "fr": "Autres transferts en capital",
+            "en": "Other capital transfers"
+          }
+        },
+        {
+          "code": "ODA",
+          "label": {
+            "fr": "Total des recettes fiscales",
+            "en": "Total tax revenue"
+          }
+        },
+        {
+          "code": "ODB",
+          "label": {
+            "fr": "Produit total des impôts et cotisations sociales après déduction des montants dus non recouvrables",
+            "en": "Total receipts from taxes and social contributions after deduction of amounts assessed but unlikely to be collected"
+          }
+        },
+        {
+          "code": "ODD",
+          "label": {
+            "fr": "Charge fiscale = produit total des impôts et cotisations sociales obligatoires après déduction des montants dus non recouvrables",
+            "en": "Tax burden = total receipts from taxes and compulsory social contributions after deduction of amounts assessed but unlikely to be collected"
+          }
+        },
+        {
+          "code": "B1NQ",
+          "label": {
+            "fr": "Produit intérieur net de CCF",
+            "en": "Domestic product net of consumption of fixed capital"
+          }
+        },
+        {
+          "code": "ODC",
+          "label": {
+            "fr": "Produit total des impôts et cotisations sociales nettes (y compris cotisations sociales imputées) après déduction des montants dus non recouvrables",
+            "en": "Total receipts from taxes and social contributions (including imputed social contributions) after deduction of amounts assessed but unlikely to be collected"
+          }
+        },
+        {
+          "code": "B4G",
+          "label": {
+            "fr": "Revenu d’entreprise brut",
+            "en": "Gross corporate income"
+          }
+        },
+        {
+          "code": "B5NQ",
+          "label": {
+            "fr": "Revenu national net",
+            "en": "Net national income "
+          }
+        },
+        {
+          "code": "B9FX9",
+          "label": {
+            "fr": "Écart entre capacité ou besoin de financement et solde des flux nets d’actifs et passifs financiers (B9NF – B9F)",
+            "en": "Discrepancy between the financial (B9F) and non-financial (B9) net lending/borrowing"
+          }
+        },
+        {
+          "code": "B101",
+          "label": {
+            "fr": "Variations de la valeur nette due à l’épargne et aux transferts de capital",
+            "en": "Changes in net worth due to saving and capital transfers"
+          }
+        },
+        {
+          "code": "B102",
+          "label": {
+            "fr": "Variation valeur nette dues aux changements de volume et ajustement",
+            "en": "Changes in net worth due to volume changes and adjustment"
+          }
+        },
+        {
+          "code": "B103",
+          "label": {
+            "fr": "Variation valeur nette dues aux réévaluations",
+            "en": "Changes in net worth due to reevaluations"
+          }
+        },
+        {
+          "code": "_COEFF_TECHNIQUE",
+          "label": {
+            "fr": "Coefficient technique",
+            "en": "Technical coefficient"
+          }
+        },
+        {
+          "code": "OTTM1",
+          "label": {
+            "fr": "Marges de commerce",
+            "en": "Trade margins"
+          }
+        },
+        {
+          "code": "OTTM2",
+          "label": {
+            "fr": "Marges de transport",
+            "en": "Transport margins"
+          }
+        },
+        {
+          "code": "TSPP",
+          "label": {
+            "fr": "Total ressources prix d’acquisition",
+            "en": "Total resources at purchaser price"
+          }
+        },
+        {
+          "code": "D51M",
+          "label": {
+            "fr": "Impôts sur le revenu des personnes physiques ou des ménages, y compris les gains de détention (D51a + D51c1)",
+            "en": "Taxes on individual or household income including holding gains"
+          }
+        },
+        {
+          "code": "D51O",
+          "label": {
+            "fr": "Impôts sur le revenu ou les bénéfices des sociétés, y compris les gains de détention (D51b + D51c2)",
+            "en": "Taxes on the income or profits of corporations including holding gains"
+          }
+        },
+        {
+          "code": "D995",
+          "label": {
+            "fr": "Transferts en capital pour admissions en non valeur",
+            "en": "Capital transfers for non-value admissions"
+          }
+        },
+        {
+          "code": "_MA_PPIB",
+          "label": {
+            "fr": "Déficit au sens de Maastricht en points de PIB",
+            "en": "Deficit according to Maastricht in GDP points"
+          }
+        },
+        {
+          "code": "MA",
+          "label": {
+            "fr": "Déficit au sens de Maastricht",
+            "en": "Maastricht deficit"
+          }
+        },
+        {
+          "code": "P12_GFSM_D1",
+          "label": {
+            "fr": "Production pour usage final propre, coût imputable à la rémunération des salariés (finalité GFSM)",
+            "en": "Output for own final use, cost attributable to compensation of employees (GFSM purpose)"
+          }
+        },
+        {
+          "code": "P12_GFSM_P2",
+          "label": {
+            "fr": "Production pour usage final propre, coût imputable à la consommation intermédiaire (finalité GFSM)",
+            "en": "Output for own final use, cost attributable to intermediate consumption (GFSM purpose)"
+          }
+        },
+        {
+          "code": "P12_GFSM_P51C",
+          "label": {
+            "fr": "Production pour usage final propre, coût imputable à la consommation de capital fixe (finalité GFSM)",
+            "en": "Output for own final use, cost attributable to consumption of fixed capital (GFSM purpose)"
+          }
+        },
+        {
+          "code": "TC",
+          "label": {
+            "fr": "Partie des crédits d’impôts qui excède les créances des contribuables",
+            "en": "'Portion of tax credits in excess of taxpayers'' claims'"
+          }
+        },
+        {
+          "code": "D31P",
+          "label": {
+            "fr": "Subventions sur les produits à payer",
+            "en": "Subsidies on products, payable (positive sign, for reporting in GFS presentation)"
+          }
+        },
+        {
+          "code": "PTC",
+          "label": {
+            "fr": "Total des crédits d’impôts à payer",
+            "en": "Total payable tax credits  "
+          }
+        },
+        {
+          "code": "D6M",
+          "label": {
+            "fr": "Prestations sociales en espèces et en nature de produits marchands",
+            "en": "Social benefits other than social transfers in kind and social transfers in kind - purchased market production"
+          }
+        },
+        {
+          "code": "P5L",
+          "label": {
+            "fr": "Acquisition nette d’actifs non financiers",
+            "en": "Net acquisition of non-financial assets"
+          }
+        },
+        {
+          "code": "D39P",
+          "label": {
+            "fr": "Autres subventions sur la production à payer",
+            "en": "Other subsidies on production, payable (positive sign, for reporting in GFS presentation)"
+          }
+        },
+        {
+          "code": "D3P",
+          "label": {
+            "fr": "Subventions à payer (signe positif, pour la déclaration dans la présentation des SFP)",
+            "en": "Subsidies, payable (positive sign, for reporting in GFS presentation)"
+          }
+        },
+        {
+          "code": "D39R",
+          "label": {
+            "fr": "Autres subventions sur la production à recevoir",
+            "en": "Other subsidies on production, receivable (positive sign, for reporting in GFS presentation)"
+          }
+        },
+        {
+          "code": "D2122B",
+          "label": {
+            "fr": "Montants compensatoires monétaires prélevés a l’importation",
+            "en": "Monetary compensatory amounts on imports"
+          }
+        },
+        {
+          "code": "D2122C",
+          "label": {
+            "fr": "Droits d’accise",
+            "en": "Excise duties"
+          }
+        },
+        {
+          "code": "D214A",
+          "label": {
+            "fr": "Droits d’accise et taxes à la consommation",
+            "en": "Excise duties and consumption taxes"
+          }
+        },
+        {
+          "code": "D214B",
+          "label": {
+            "fr": "Droits de timbre",
+            "en": "Stamp taxes"
+          }
+        },
+        {
+          "code": "D214C",
+          "label": {
+            "fr": "Impôts sur les opérations financières et les opérations en capital",
+            "en": "Taxes on financial and capital transactions"
+          }
+        },
+        {
+          "code": "D214D",
+          "label": {
+            "fr": "Taxe sur les certificats d’immatriculation des véhicules",
+            "en": "Tax on vehicle registration certificates"
+          }
+        },
+        {
+          "code": "D214E",
+          "label": {
+            "fr": "Taxes sur les spectacles et divertissements",
+            "en": "Taxes on entertainment"
+          }
+        },
+        {
+          "code": "D214F",
+          "label": {
+            "fr": "Taxes sur les loteries, les jeux et les paris",
+            "en": "Taxes on lotteries, gambling and betting"
+          }
+        },
+        {
+          "code": "D214G",
+          "label": {
+            "fr": "Taxes sur les primes d’assurance",
+            "en": "Taxes on insurance premiums"
+          }
+        },
+        {
+          "code": "D214H",
+          "label": {
+            "fr": "Autres impôts sur des services détermines",
+            "en": "Other taxes on specified services"
+          }
+        },
+        {
+          "code": "D214I",
+          "label": {
+            "fr": "Impôts généraux sur les ventes ou le chiffre d’affaires",
+            "en": "Taxes on general sales or turnover "
+          }
+        },
+        {
+          "code": "D214L",
+          "label": {
+            "fr": "Autres impôts sur les produits n,c,a,",
+            "en": "Other taxes on products n. e. c."
+          }
+        },
+        {
+          "code": "D29A",
+          "label": {
+            "fr": "Impôts fonciers, impôts immobiliers ou impôts sur d’autres structures",
+            "en": "Property taxes, real estate taxes or taxes on other structures"
+          }
+        },
+        {
+          "code": "D29B",
+          "label": {
+            "fr": "Impôts sur l’utilisation d’actifs fixes",
+            "en": "Taxes on the use of fixed assets"
+          }
+        },
+        {
+          "code": "D29C",
+          "label": {
+            "fr": "Total des impôts sur la masse salariale",
+            "en": "Total  payroll taxes"
+          }
+        },
+        {
+          "code": "D29E",
+          "label": {
+            "fr": "Patentes et licences",
+            "en": "Patents and licences"
+          }
+        },
+        {
+          "code": "D29F",
+          "label": {
+            "fr": "Impôts sur la pollution",
+            "en": "Taxes on pollution"
+          }
+        },
+        {
+          "code": "D29H",
+          "label": {
+            "fr": "Autres impôts nets sur la production n,c,a,",
+            "en": "Other taxes on production not elsewhere classified"
+          }
+        },
+        {
+          "code": "D51A",
+          "label": {
+            "fr": "Impôts sur le revenu des personnes physiques ou des ménages, a l’exclusion des gains de détention",
+            "en": "Taxes on personal or household income, excluding holding gains"
+          }
+        },
+        {
+          "code": "D51B",
+          "label": {
+            "fr": "Impôts sur le revenu ou les bénéfices des sociétés a l’exclusion des gains de détention",
+            "en": "Taxes on the income or profits of corporations excluding holding gains"
+          }
+        },
+        {
+          "code": "D51E",
+          "label": {
+            "fr": "Autres impôts sur le revenu n,c,a,",
+            "en": "Other taxes on income n.e.c."
+          }
+        },
+        {
+          "code": "D59A",
+          "label": {
+            "fr": "Impôts courants sur le capital",
+            "en": "Current taxes on capital"
+          }
+        },
+        {
+          "code": "D59D",
+          "label": {
+            "fr": "Paiements effectués par les ménages en vue de l’obtention de licences",
+            "en": "Payments by households for licences"
+          }
+        },
+        {
+          "code": "D59F",
+          "label": {
+            "fr": "Autres impôts courants n,c,a,",
+            "en": "Other current taxes n.e.c."
+          }
+        },
+        {
+          "code": "D611C",
+          "label": {
+            "fr": "Cotisations sociales effectives obligatoires à la charge des employeurs",
+            "en": "Compulsory employers’ actual social contributions"
+          }
+        },
+        {
+          "code": "D613C",
+          "label": {
+            "fr": "Cotisations sociales effectives obligatoires à la charge des ménages",
+            "en": "Compulsory households’ actual social contributions"
+          }
+        },
+        {
+          "code": "D9",
+          "label": {
+            "fr": "Transferts en capital",
+            "en": "Capital transfers"
+          }
+        },
+        {
+          "code": "D91A",
+          "label": {
+            "fr": "Impôts sur les transferts en capital",
+            "en": "Taxes on capital transfers"
+          }
+        },
+        {
+          "code": "D91B",
+          "label": {
+            "fr": "Prélèvements sur le capital",
+            "en": "Capital levies"
+          }
+        },
+        {
+          "code": "D91C",
+          "label": {
+            "fr": "Autres impôts en capital n,c,a,",
+            "en": "Other capital taxes n.e.c."
+          }
+        },
+        {
+          "code": "D995A",
+          "label": {
+            "fr": "Impôts sur les produits dus non recouvrables",
+            "en": "Taxes on products assessed but unlikely to be collected"
+          }
+        },
+        {
+          "code": "D995B",
+          "label": {
+            "fr": "Autres impôts sur la production dus non recouvrables",
+            "en": "Other taxes on production assessed but unlikely to be collected"
+          }
+        },
+        {
+          "code": "D995C",
+          "label": {
+            "fr": "Impôts sur le revenu dus non recouvrables",
+            "en": "Taxes on income assessed but unlikely to be collected"
+          }
+        },
+        {
+          "code": "D995D",
+          "label": {
+            "fr": "Autres impôts courants dus non recouvrables ",
+            "en": "Other current taxes assessed but unlikely to be collected"
+          }
+        },
+        {
+          "code": "D995E",
+          "label": {
+            "fr": "Cotisations sociales effectives à la charge des employeurs dues non recouvrables",
+            "en": "Actual social security contributions payable by employers not recoverable"
+          }
+        },
+        {
+          "code": "D995FE",
+          "label": {
+            "fr": "Cotisations sociales effectives à la charge des salariés dues non recouvrables",
+            "en": "Actual social contributions payable by employees not recoverable"
+          }
+        },
+        {
+          "code": "D995FN",
+          "label": {
+            "fr": "Cotisations sociales effectives a la charge des non employés dues non recouvrables",
+            "en": "Actual social contributions payable by non-employees  not recoverable"
+          }
+        },
+        {
+          "code": "D995FS",
+          "label": {
+            "fr": "Cotisations sociales effectives à la charge des travailleurs indépendants dues non recouvrable",
+            "en": "Actual social contributions payable by self-employed workers not recoverable"
+          }
+        },
+        {
+          "code": "D995F",
+          "label": {
+            "fr": "Cotisations sociales effectives à la charge des ménages dues non recouvrables",
+            "en": "Actual social contributions payable by households not recoverable"
+          }
+        },
+        {
+          "code": "OED",
+          "label": {
+            "fr": "Autres impôts sur la production + impôts courants sur le revenu, le patrimoine, etc, + ajustement pour variations des droits à pension",
+            "en": "Other taxes on production + Current taxes on income, wealth, etc. + Adjustment for the change in pension entitlements"
+          }
+        },
+        {
+          "code": "OEC",
+          "label": {
+            "fr": "Consommation intermédiaire + autres impôts sur la production + impôts courants sur le revenu, le patrimoine, etc, + ajustement pour variations des droits à pension",
+            "en": "Intermediate consumption + Other taxes on production + Current taxes on income, wealth, etc. + Adjustment for the change in pension entitlements"
+          }
+        },
+        {
+          "code": "B9F",
+          "label": {
+            "fr": "Solde des flux nets d’actifs et passifs financiers",
+            "en": "Financial net lending/borrowing"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "CONF_STATUS",
+        "label": {
+          "fr": "Statut de confidentialité",
+          "en": "Confidentiality status"
+        }
+      },
+      "values": [
+        {
+          "code": "F",
+          "label": {
+            "fr": "Diffusable",
+            "en": "Free for publication"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "REF_YEAR_PRICE",
+        "label": {
+          "fr": "Année de référence de l'indice de prix",
+          "en": "Reference year price"
+        }
+      },
+      "values": [
+        {
+          "code": "2020",
+          "label": {
+            "fr": "2020",
+            "en": "2020"
+          }
+        }
+      ],
+      "type": "valeurs"
+    },
+    {
+      "concept": {
+        "code": "OBS_STATUS_FR",
+        "label": {
+          "fr": "Version",
+          "en": "Version"
+        }
+      },
+      "values": [
+        {
+          "code": "PROV",
+          "iri": "PROV",
+          "label": {
+            "fr": "Provisoire",
+            "en": "Provisional"
+          }
+        },
+        {
+          "code": "SD",
+          "iri": "SD",
+          "label": {
+            "fr": "Semi-définitif",
+            "en": "Semi-final"
+          }
+        },
+        {
+          "code": "D",
+          "iri": "D",
+          "label": {
+            "fr": "Définitif",
+            "en": "Final"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "OBS_STATUS",
+        "label": {
+          "fr": "Statut de l'observation",
+          "en": "Observation status"
+        }
+      },
+      "values": [
+        {
+          "code": "P",
+          "label": {
+            "fr": "Valeur provisoire",
+            "en": "Provisional value"
+          }
+        },
+        {
+          "code": "A",
+          "label": {
+            "fr": "Normale",
+            "en": "Normal"
+          }
+        },
+        {
+          "code": "L",
+          "label": {
+            "fr": "Valeur manquante : les données existent mais ne sont pas collectées (non disponible : nd)",
+            "en": "Missing value : data exist but were not collected"
+          }
+        },
+        {
+          "code": "M",
+          "label": {
+            "fr": "Valeur manquante : les données n’existent pas (sans objet : so)",
+            "en": "Missing value : data cannot exist"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "FREQ",
+        "label": {
+          "fr": "Fréquence",
+          "en": "Frequency"
+        }
+      },
+      "values": [
+        {
+          "code": "A",
+          "iri": "A",
+          "label": {
+            "fr": "Annuel",
+            "en": "Annual"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "PRODUCT",
+        "label": {
+          "fr": "Produit",
+          "en": "Product"
+        }
+      },
+      "values": [
+        {
+          "code": "_T",
+          "label": {
+            "fr": "Total",
+            "en": "Total"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "REF_SECTOR",
+        "label": {
+          "fr": "Secteur institutionnel",
+          "en": "Reference sector"
+        }
+      },
+      "values": [
+        {
+          "code": "S1",
+          "label": {
+            "fr": "Économie totale",
+            "en": "Total economy"
+          }
+        },
+        {
+          "code": "S13",
+          "label": {
+            "fr": "Administrations publiques",
+            "en": "General government"
+          }
+        },
+        {
+          "code": "S14",
+          "label": {
+            "fr": "Ménages",
+            "en": "Households"
+          }
+        },
+        {
+          "code": "S14B",
+          "label": {
+            "fr": "Ménages hors entrepreneurs individuels",
+            "en": "Households excluding sole proprietorship"
+          }
+        },
+        {
+          "code": "S15",
+          "label": {
+            "fr": "Institutions sans but lucratif au services des ménages",
+            "en": "Non profit institutions serving households"
+          }
+        },
+        {
+          "code": "S11X14AA",
+          "label": {
+            "fr": "Sociétés et entreprises individuelles non financières",
+            "en": "Non financial corporations and unincorporated enterprises"
+          }
+        },
+        {
+          "code": "S11",
+          "label": {
+            "fr": "Sociétés non financières",
+            "en": "Non financial corporations"
+          }
+        },
+        {
+          "code": "S12X14AF",
+          "label": {
+            "fr": "Sociétés et entreprises individuelles financières",
+            "en": "Financial corporations and unincorporated enterprises"
+          }
+        },
+        {
+          "code": "S13112",
+          "label": {
+            "fr": "Organismes divers d’administration centrale",
+            "en": "Central government, extra-budgetary units"
+          }
+        },
+        {
+          "code": "S12",
+          "label": {
+            "fr": "Sociétés financières",
+            "en": "Financial corporations"
+          }
+        },
+        {
+          "code": "S1313",
+          "label": {
+            "fr": "Administrations locales (à l’exclusion de la sécurité sociale)",
+            "en": "Local government excluding social security"
+          }
+        },
+        {
+          "code": "S1311",
+          "label": {
+            "fr": "Administration centrale (à l’exclusion de la sécurité sociale)",
+            "en": "Central government excluding social security"
+          }
+        },
+        {
+          "code": "S1314",
+          "label": {
+            "fr": "Administrations de sécurité sociale",
+            "en": "Social security funds"
+          }
+        },
+        {
+          "code": "S13111",
+          "label": {
+            "fr": "État",
+            "en": "Central government, budgetary units"
+          }
+        },
+        {
+          "code": "S14AA",
+          "label": {
+            "fr": "Entreprises individuelles non financières",
+            "en": "Non financial sole proprietorship"
+          }
+        },
+        {
+          "code": "S1M",
+          "label": {
+            "fr": "Ménages et institutions sans but lucratif au services des ménages",
+            "en": "Households and non profit institutions serving households (NPISH)"
+          }
+        },
+        {
+          "code": "S1L",
+          "label": {
+            "fr": "APU, ménages et institutions sans but lucratif au services des ménages",
+            "en": "General government, households and non profit institutions serving households"
+          }
+        },
+        {
+          "code": "S12K64",
+          "label": {
+            "fr": "Sociétés financières : services principalement financiers, hors assurance",
+            "en": "Sociétés financières : services principalement financiers, hors assurance"
+          }
+        },
+        {
+          "code": "S12K66",
+          "label": {
+            "fr": "Sociétés financières : services principalement d’auxiliaires financiers",
+            "en": "Sociétés financières : services principalement d’auxiliaires financiers"
+          }
+        },
+        {
+          "code": "S12K65",
+          "label": {
+            "fr": "Sociétés financières : services principalement d’assurance",
+            "en": "Sociétés financières : services principalement d’assurance"
+          }
+        },
+        {
+          "code": "_Z",
+          "label": {
+            "fr": "Non pertinent",
+            "en": "Not applicable"
+          }
+        },
+        {
+          "code": "SBS",
+          "label": {
+            "fr": "Biens et services",
+            "en": "Goods and services"
+          }
+        },
+        {
+          "code": "S10",
+          "label": {
+            "fr": "Total des secteurs résidents",
+            "en": "Total of domestic sectors"
+          }
+        },
+        {
+          "code": "SZV",
+          "label": {
+            "fr": "Administrations publiques et institutions et organes de l’Union européenne",
+            "en": "General government and institutions of the European Union (ESA GFS concept)"
+          }
+        },
+        {
+          "code": "S1N",
+          "label": {
+            "fr": "Non sectorisé",
+            "en": "Not sectorised"
+          }
+        },
+        {
+          "code": "S1312",
+          "label": {
+            "fr": "Administration d’états fédérés (à l’exclusion de la sécurité sociale)",
+            "en": "State government excluding social security"
+          }
+        },
+        {
+          "code": "S2",
+          "label": {
+            "fr": "Reste du monde",
+            "en": "Rest of the world"
+          }
+        },
+        {
+          "code": "SZU",
+          "label": {
+            "fr": "Institutions de l’Union Européenne",
+            "en": "Institutions of the European Union (ESA GFS concept)"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "TIME_PERIOD",
+        "label": {
+          "fr": "Période temporelle",
+          "en": "Time period"
+        }
+      },
+      "values": [
+        {
+          "code": "2023",
+          "label": {
+            "fr": "2023",
+            "en": "2023"
+          }
+        },
+        {
+          "code": "2022",
+          "label": {
+            "fr": "2022",
+            "en": "2022"
+          }
+        },
+        {
+          "code": "2021",
+          "label": {
+            "fr": "2021",
+            "en": "2021"
+          }
+        },
+        {
+          "code": "2020",
+          "label": {
+            "fr": "2020",
+            "en": "2020"
+          }
+        },
+        {
+          "code": "1981",
+          "label": {
+            "fr": "1981",
+            "en": "1981"
+          }
+        },
+        {
+          "code": "1980",
+          "label": {
+            "fr": "1980",
+            "en": "1980"
+          }
+        },
+        {
+          "code": "1979",
+          "label": {
+            "fr": "1979",
+            "en": "1979"
+          }
+        },
+        {
+          "code": "1978",
+          "label": {
+            "fr": "1978",
+            "en": "1978"
+          }
+        },
+        {
+          "code": "1977",
+          "label": {
+            "fr": "1977",
+            "en": "1977"
+          }
+        },
+        {
+          "code": "1976",
+          "label": {
+            "fr": "1976",
+            "en": "1976"
+          }
+        },
+        {
+          "code": "1975",
+          "label": {
+            "fr": "1975",
+            "en": "1975"
+          }
+        },
+        {
+          "code": "2019",
+          "label": {
+            "fr": "2019",
+            "en": "2019"
+          }
+        },
+        {
+          "code": "1974",
+          "label": {
+            "fr": "1974",
+            "en": "1974"
+          }
+        },
+        {
+          "code": "2018",
+          "label": {
+            "fr": "2018",
+            "en": "2018"
+          }
+        },
+        {
+          "code": "1973",
+          "label": {
+            "fr": "1973",
+            "en": "1973"
+          }
+        },
+        {
+          "code": "1972",
+          "label": {
+            "fr": "1972",
+            "en": "1972"
+          }
+        },
+        {
+          "code": "1971",
+          "label": {
+            "fr": "1971",
+            "en": "1971"
+          }
+        },
+        {
+          "code": "2017",
+          "label": {
+            "fr": "2017",
+            "en": "2017"
+          }
+        },
+        {
+          "code": "2016",
+          "label": {
+            "fr": "2016",
+            "en": "2016"
+          }
+        },
+        {
+          "code": "1970",
+          "label": {
+            "fr": "1970",
+            "en": "1970"
+          }
+        },
+        {
+          "code": "1969",
+          "label": {
+            "fr": "1969",
+            "en": "1969"
+          }
+        },
+        {
+          "code": "2015",
+          "label": {
+            "fr": "2015",
+            "en": "2015"
+          }
+        },
+        {
+          "code": "1968",
+          "label": {
+            "fr": "1968",
+            "en": "1968"
+          }
+        },
+        {
+          "code": "1967",
+          "label": {
+            "fr": "1967",
+            "en": "1967"
+          }
+        },
+        {
+          "code": "2014",
+          "label": {
+            "fr": "2014",
+            "en": "2014"
+          }
+        },
+        {
+          "code": "1966",
+          "label": {
+            "fr": "1966",
+            "en": "1966"
+          }
+        },
+        {
+          "code": "1965",
+          "label": {
+            "fr": "1965",
+            "en": "1965"
+          }
+        },
+        {
+          "code": "2013",
+          "label": {
+            "fr": "2013",
+            "en": "2013"
+          }
+        },
+        {
+          "code": "1964",
+          "label": {
+            "fr": "1964",
+            "en": "1964"
+          }
+        },
+        {
+          "code": "2012",
+          "label": {
+            "fr": "2012",
+            "en": "2012"
+          }
+        },
+        {
+          "code": "1963",
+          "label": {
+            "fr": "1963",
+            "en": "1963"
+          }
+        },
+        {
+          "code": "1962",
+          "label": {
+            "fr": "1962",
+            "en": "1962"
+          }
+        },
+        {
+          "code": "2011",
+          "label": {
+            "fr": "2011",
+            "en": "2011"
+          }
+        },
+        {
+          "code": "1961",
+          "label": {
+            "fr": "1961",
+            "en": "1961"
+          }
+        },
+        {
+          "code": "2010",
+          "label": {
+            "fr": "2010",
+            "en": "2010"
+          }
+        },
+        {
+          "code": "1960",
+          "label": {
+            "fr": "1960",
+            "en": "1960"
+          }
+        },
+        {
+          "code": "1959",
+          "label": {
+            "fr": "1959",
+            "en": "1959"
+          }
+        },
+        {
+          "code": "1958",
+          "label": {
+            "fr": "1958",
+            "en": "1958"
+          }
+        },
+        {
+          "code": "1957",
+          "label": {
+            "fr": "1957",
+            "en": "1957"
+          }
+        },
+        {
+          "code": "1956",
+          "label": {
+            "fr": "1956",
+            "en": "1956"
+          }
+        },
+        {
+          "code": "1955",
+          "label": {
+            "fr": "1955",
+            "en": "1955"
+          }
+        },
+        {
+          "code": "1954",
+          "label": {
+            "fr": "1954",
+            "en": "1954"
+          }
+        },
+        {
+          "code": "1953",
+          "label": {
+            "fr": "1953",
+            "en": "1953"
+          }
+        },
+        {
+          "code": "2009",
+          "label": {
+            "fr": "2009",
+            "en": "2009"
+          }
+        },
+        {
+          "code": "2008",
+          "label": {
+            "fr": "2008",
+            "en": "2008"
+          }
+        },
+        {
+          "code": "2007",
+          "label": {
+            "fr": "2007",
+            "en": "2007"
+          }
+        },
+        {
+          "code": "2006",
+          "label": {
+            "fr": "2006",
+            "en": "2006"
+          }
+        },
+        {
+          "code": "2005",
+          "label": {
+            "fr": "2005",
+            "en": "2005"
+          }
+        },
+        {
+          "code": "2004",
+          "label": {
+            "fr": "2004",
+            "en": "2004"
+          }
+        },
+        {
+          "code": "2003",
+          "label": {
+            "fr": "2003",
+            "en": "2003"
+          }
+        },
+        {
+          "code": "2002",
+          "label": {
+            "fr": "2002",
+            "en": "2002"
+          }
+        },
+        {
+          "code": "2001",
+          "label": {
+            "fr": "2001",
+            "en": "2001"
+          }
+        },
+        {
+          "code": "2000",
+          "label": {
+            "fr": "2000",
+            "en": "2000"
+          }
+        },
+        {
+          "code": "1999",
+          "label": {
+            "fr": "1999",
+            "en": "1999"
+          }
+        },
+        {
+          "code": "1952",
+          "label": {
+            "fr": "1952",
+            "en": "1952"
+          }
+        },
+        {
+          "code": "1998",
+          "label": {
+            "fr": "1998",
+            "en": "1998"
+          }
+        },
+        {
+          "code": "1951",
+          "label": {
+            "fr": "1951",
+            "en": "1951"
+          }
+        },
+        {
+          "code": "1950",
+          "label": {
+            "fr": "1950",
+            "en": "1950"
+          }
+        },
+        {
+          "code": "1997",
+          "label": {
+            "fr": "1997",
+            "en": "1997"
+          }
+        },
+        {
+          "code": "1996",
+          "label": {
+            "fr": "1996",
+            "en": "1996"
+          }
+        },
+        {
+          "code": "1995",
+          "label": {
+            "fr": "1995",
+            "en": "1995"
+          }
+        },
+        {
+          "code": "1994",
+          "label": {
+            "fr": "1994",
+            "en": "1994"
+          }
+        },
+        {
+          "code": "1993",
+          "label": {
+            "fr": "1993",
+            "en": "1993"
+          }
+        },
+        {
+          "code": "1992",
+          "label": {
+            "fr": "1992",
+            "en": "1992"
+          }
+        },
+        {
+          "code": "1991",
+          "label": {
+            "fr": "1991",
+            "en": "1991"
+          }
+        },
+        {
+          "code": "1990",
+          "label": {
+            "fr": "1990",
+            "en": "1990"
+          }
+        },
+        {
+          "code": "1989",
+          "label": {
+            "fr": "1989",
+            "en": "1989"
+          }
+        },
+        {
+          "code": "1988",
+          "label": {
+            "fr": "1988",
+            "en": "1988"
+          }
+        },
+        {
+          "code": "1987",
+          "label": {
+            "fr": "1987",
+            "en": "1987"
+          }
+        },
+        {
+          "code": "1986",
+          "label": {
+            "fr": "1986",
+            "en": "1986"
+          }
+        },
+        {
+          "code": "1985",
+          "label": {
+            "fr": "1985",
+            "en": "1985"
+          }
+        },
+        {
+          "code": "1984",
+          "label": {
+            "fr": "1984",
+            "en": "1984"
+          }
+        },
+        {
+          "code": "1983",
+          "label": {
+            "fr": "1983",
+            "en": "1983"
+          }
+        },
+        {
+          "code": "1982",
+          "label": {
+            "fr": "1982",
+            "en": "1982"
+          }
+        },
+        {
+          "code": "1949",
+          "label": {
+            "fr": "1949",
+            "en": "1949"
+          }
+        },
+        {
+          "code": "2024",
+          "label": {
+            "fr": "2024",
+            "en": "2024"
+          }
+        }
+      ],
+      "type": "date"
+    },
+    {
+      "concept": {
+        "code": "COUNTERPART_AREA",
+        "label": {
+          "fr": "Zone de contrepartie",
+          "en": "Counterpart area"
+        }
+      },
+      "values": [
+        {
+          "code": "W0",
+          "label": {
+            "fr": "Monde",
+            "en": "World (all areas, including reference area, including IO)"
+          }
+        },
+        {
+          "code": "W1",
+          "label": {
+            "fr": "Reste du monde",
+            "en": "Rest of the World"
+          }
+        },
+        {
+          "code": "D0",
+          "label": {
+            "fr": "Hors Union Européenne",
+            "en": "Extra-EU (changing composition)"
+          }
+        },
+        {
+          "code": "W2",
+          "label": {
+            "fr": "Territoire national",
+            "en": "Domestic (home or reference area)"
+          }
+        },
+        {
+          "code": "W08",
+          "label": {
+            "fr": "Intérieur vis-à-vis du monde plus reste du monde vis-à-vis de l'intérieur",
+            "en": "Domestic vis-à-vis world plus rest of the world vis-à-vis domestic"
+          }
+        },
+        {
+          "code": "B0",
+          "label": {
+            "fr": "Union Européenne (Etats membres et institutions)",
+            "en": "EU (Member States and Institutions of the European Union) changing composition"
+          }
+        },
+        {
+          "code": "U2",
+          "label": {
+            "fr": "Zone euro (Etats membres et institutions) ",
+            "en": "Euro area (Member States and Institutions of the Euro Area) changing composition"
+          }
+        },
+        {
+          "code": "4Y",
+          "label": {
+            "fr": "Institutions de l’Union Européenne",
+            "en": "All European Community Institutions, Organs and Organisms, including ECB, ESM and EFSF"
+          }
+        },
+        {
+          "code": "B01",
+          "label": {
+            "fr": "Pays de l’Union Européenne participant au mécanisme de surveillance unique",
+            "en": "EU countries participating in the Single Supervisory Mechanism (SSM) (changing composition)"
+          }
+        },
+        {
+          "code": "I9",
+          "label": {
+            "fr": "Pays membres de la Zone Euro (composition fixe, au 1er janvier 2023)",
+            "en": "Euro area 20 (fixed composition) as of 1 January 2023"
+          }
+        },
+        {
+          "code": "K11",
+          "label": {
+            "fr": "Pays membres de l’Union Européenne et hors de la Zone Euro (composition fixe, au 1er janvier 2023)",
+            "en": "EU27 member states not belonging to Euro area 20 (fixed composition) as of 1 January 2023"
+          }
+        },
+        {
+          "code": "D6",
+          "label": {
+            "fr": "Pays hors pays membres de l’Union Européenne (composition fixe, au 31 janvier 2020,  post brexit)",
+            "en": "Extra-EU 27 (fixed composition) as of 31 January 2020 (brexit)"
+          }
+        },
+        {
+          "code": "B6",
+          "label": {
+            "fr": "Pays membres de l’Union Européenne (composition fixe, au 31 janvier 2020, post brexit)",
+            "en": "EU27 (fixed composition) as of 31 January 2020 (brexit)"
+          }
+        },
+        {
+          "code": "J9",
+          "label": {
+            "fr": "Pays hors pays membres de la Zone Euro (composition fixe, au 1er janvier 2023)",
+            "en": "Extra-Euro area 20 (fixed composition) as of 1 January 2023"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "UNIT_MEASURE",
+        "label": {
+          "fr": "Unité de mesure",
+          "en": "Unit measure"
+        }
+      },
+      "values": [
+        {
+          "code": "XDC",
+          "label": {
+            "fr": "Devise nationale (Euros)",
+            "en": "Domestic currency (Euros)"
+          }
+        },
+        {
+          "code": "IX",
+          "label": {
+            "fr": "Indice",
+            "en": "Index"
+          }
+        },
+        {
+          "code": "PT",
+          "label": {
+            "fr": "Pourcentage",
+            "en": "Percent"
+          }
+        },
+        {
+          "code": "PS",
+          "label": {
+            "fr": "Personnes",
+            "en": "Persons"
+          }
+        },
+        {
+          "code": "FT",
+          "label": {
+            "fr": "Équivalent temps plein",
+            "en": "Full time equivalent"
+          }
+        },
+        {
+          "code": "HW",
+          "label": {
+            "fr": "Heures travaillées",
+            "en": "Hours worked"
+          }
+        },
+        {
+          "code": "DAT",
+          "label": {
+            "fr": "Durée annuelle travaillée",
+            "en": "DAT"
+          }
+        },
+        {
+          "code": "_Z",
+          "label": {
+            "fr": "Nombre",
+            "en": "Number"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "DECIMALS",
+        "label": {
+          "fr": "Décimales",
+          "en": "Decimals"
+        }
+      },
+      "values": [
+        {
+          "code": "1",
+          "label": {
+            "fr": "Un",
+            "en": "One"
+          }
+        },
+        {
+          "code": "3",
+          "label": {
+            "fr": "Trois",
+            "en": "Three"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "UNIT_MULT",
+        "label": {
+          "fr": "Quantité d'unités (en puissance de 10)",
+          "en": "Quantity of units (in power of 10)"
+        }
+      },
+      "values": [
+        {
+          "code": "6",
+          "label": {
+            "fr": "Millions",
+            "en": "Millions"
+          }
+        },
+        {
+          "code": "0",
+          "label": {
+            "fr": "Unités",
+            "en": "Units"
+          }
+        },
+        {
+          "code": "3",
+          "label": {
+            "fr": "Milliers",
+            "en": "Thousands"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "ACCOUNTING_ENTRY",
+        "label": {
+          "fr": "Position de compte",
+          "en": "Accounting entry"
+        }
+      },
+      "values": [
+        {
+          "code": "C",
+          "label": {
+            "fr": "Ressource ou crédit",
+            "en": "Credit or resources"
+          }
+        },
+        {
+          "code": "D",
+          "label": {
+            "fr": "Emploi ou débit",
+            "en": "Debit or uses"
+          }
+        },
+        {
+          "code": "B",
+          "label": {
+            "fr": "Solde",
+            "en": "Balance ie Credits minus Debits"
+          }
+        },
+        {
+          "code": "_Z",
+          "label": {
+            "fr": "Non applicable",
+            "en": "Not applicable"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "INSTR_ASSET",
+        "label": {
+          "fr": "Classe d'actifs passifs",
+          "en": "Instrument asset"
+        }
+      },
+      "values": [
+        {
+          "code": "_Z",
+          "label": {
+            "fr": "Total",
+            "en": "Total"
+          }
+        },
+        {
+          "code": "N1G",
+          "label": {
+            "fr": "Actifs non financiers produits (brut)",
+            "en": "Produced non-financial assets (gross)"
+          }
+        },
+        {
+          "code": "N11G",
+          "label": {
+            "fr": "Actifs fixes par type d’actifs (brut)",
+            "en": "Fixed assets by type of asset (gross)"
+          }
+        },
+        {
+          "code": "N111G",
+          "label": {
+            "fr": "Logements (brut)",
+            "en": "Dwellings (gross)"
+          }
+        },
+        {
+          "code": "N112G",
+          "label": {
+            "fr": "Autres bâtiments et ouvrages de génie civil (brut)",
+            "en": "Other buildings and structures (gross)"
+          }
+        },
+        {
+          "code": "N1131G",
+          "label": {
+            "fr": "Matériels de transport (brut)",
+            "en": "Transport equipment (gross)"
+          }
+        },
+        {
+          "code": "N1132G",
+          "label": {
+            "fr": "Équipements TIC (brut)",
+            "en": "ICT equipment (gross)"
+          }
+        },
+        {
+          "code": "N115G",
+          "label": {
+            "fr": "Ressources biologiques cultivées (brut)",
+            "en": "Cultivated biological resources (gross)"
+          }
+        },
+        {
+          "code": "N117G",
+          "label": {
+            "fr": "Droits de propriété intellectuelle (brut)",
+            "en": "Intellectual property products (gross)"
+          }
+        },
+        {
+          "code": "N11MG",
+          "label": {
+            "fr": "Machines et équipement + systèmes d’armes (N113 + N114) (brut)",
+            "en": "Machinery and equipment and weapons systems (gross)"
+          }
+        },
+        {
+          "code": "N11OG",
+          "label": {
+            "fr": "Autres machines et équipements + systèmes d’armes (N1139+N114) (brut)",
+            "en": "Other machinery and equipment and weapons systems (gross)"
+          }
+        },
+        {
+          "code": "N11N",
+          "label": {
+            "fr": "Actifs fixes par type d’actifs (net)",
+            "en": "Fixed assets by type of asset (net)"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "ACTIVITY",
+        "label": {
+          "fr": "Activité économique",
+          "en": "Economic activity"
+        }
+      },
+      "values": [
+        {
+          "code": "_T",
+          "label": {
+            "fr": "Total",
+            "en": "Total"
+          }
+        }
+      ],
+      "type": "modalites"
+    },
+    {
+      "concept": {
+        "code": "MEASURE",
+        "label": {
+          "fr": "Mesure",
+          "en": "Measure"
+        }
+      },
+      "values": [
+        {
+          "code": "OBS_VALUE_NIVEAU",
+          "label": {
+            "fr": "Valeur",
+            "en": "Value"
+          },
+          "measureType": {
+            "code": "NIVEAU",
+            "libelle": {
+              "fr": "Niveau",
+              "en": "Niveau"
+            },
+            "ordreRmes": 1,
+            "uri": "NIVEAU",
+            "total": false,
+            "id": "NIVEAU"
+          }
+        }
+      ],
+      "type": "mesures"
+    }
+  ]
+}
