@@ -1,11 +1,10 @@
 {
-    "extends": "@repo/typescript-config/base.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@repo/typescript-config/library.json",
     "compilerOptions": {
         "outDir": "dist"
     },
-    "include": [
-        "src"
-    ],
+    "rootDir": "src",
     "exclude": [
         "src/node_modules",
         "dist"

@@ -13,18 +13,18 @@ import {
   InputData,
   jsonInputForTargetLanguage,
 } from "quicktype-core";
-import { CatalogEntry } from "../types/catalogTypes";
+import { type CatalogEntry } from "../types/catalogTypes.js";
 
 import {
-  DatasetIdentifier,
-  QueryResponseNoType as QueryResponseUnknownDataset,
-} from "../types/generalTypes";
-import { traverseObjectOrArray } from "../utils/traverseObjectOrArray";
+  type DatasetIdentifier,
+  type QueryResponseNoType as QueryResponseUnknownDataset,
+} from "../types/generalTypes.js";
+import { traverseObjectOrArray } from "../utils/traverseObjectOrArray.js";
 import {
   downloadAndExtractZip,
   extractMetaData,
-  MetadataRecord,
-} from "../data/downloadFullData";
+  type MetadataRecord,
+} from "../data/downloadFullData.js";
 
 function clearOrCreateFile(fileName: string) {
   if (existsSync(fileName)) {

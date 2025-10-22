@@ -1,8 +1,8 @@
 import AdmZip from "adm-zip";
 import { writeFileSync, mkdirSync, existsSync, readFileSync } from "fs";
 import Papa from "papaparse";
-import { CatalogEntry } from "../types/catalogTypes";
-import { DatasetIdentifier } from "../types/generalTypes";
+import type { CatalogEntry } from "../types/catalogTypes.js";
+import type { DatasetIdentifier } from "../types/generalTypes.js";
 import path from "path";
 import { fileURLToPath, pathToFileURL } from "url";
 

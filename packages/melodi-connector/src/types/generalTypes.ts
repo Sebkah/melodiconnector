@@ -1,11 +1,5 @@
 import { get } from "node:http";
-import { DatasetShapeMap } from "../datasetShapes/datasetShapes";
-import {
-  OBS_STATUS_codes,
-  PRICES_codes,
-  STO_codes,
-  TRANSFORMATION_codes,
-} from "../datasetShapes/DD_CNA_AGREGATS";
+import type { DatasetShapeMap } from "../datasetShapes/datasetShapes.js";
 
 export const supportedLanguages = ["fr", "en"] as const;
 export type SupportedLanguages = (typeof supportedLanguages)[number];
