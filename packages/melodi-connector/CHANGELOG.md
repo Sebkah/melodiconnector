@@ -1,5 +1,11 @@
 # melodi-connector
 
+## 0.0.4
+
+### Patch Changes
+
+- db481a4: Trying with publishconfig again
+
 ## 0.0.3
 
 ### Patch Changes
