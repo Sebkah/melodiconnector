@@ -7,6 +7,5 @@ export default defineConfig({
   clean: true,
   outDir: "dist",
   format: ["cjs", "esm"],
-  dts: true,
-  
+  dts: true,  
 });
