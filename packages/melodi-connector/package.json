@@ -2,13 +2,8 @@
   "name": "melodi-connector",
   "version": "0.0.2",
   "description": "",
-  "main": "index.ts",
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs"
-    }
+    ".": "./src/index.ts"
   },
   "scripts": {
     "generate:types": "tsx ./src/generators/generateTypes.ts",
@@ -18,13 +13,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "adm-zip": "^0.5.16",
     "papaparse": "^5.5.3",
     "quicktype": "^23.2.6",
-    "quicktype-core": "^23.2.6"
-  },
-  "devDependencies": {
+    "quicktype-core": "^23.2.6",
     "@types/adm-zip": "^0.5.7",
     "@types/node": "^24.8.0",
     "@types/papaparse": "^5.3.16",
@@ -37,6 +31,13 @@
   },
   "type": "module",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "exports": {
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "require": "./dist/index.cjs"
+      }
+    }
   }
 }

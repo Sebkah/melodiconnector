@@ -18,7 +18,7 @@ export const getDatasetInfo = async (id: DatasetIdentifier) => {
 };
 
 export async function getDataset<ID extends DatasetIdentifier>(
-  id: ID
+  id: ID,
 ): Promise<QueryResponse<DatasetIdentifier>> {
   const response = await fetch(`https://api.insee.fr/melodi/data/${id}`);
   const data: QueryResponse<DatasetIdentifier> = await response.json();

@@ -9,10 +9,10 @@
         "skipLibCheck": true,
         "module": "es2020",
         "outDir": "dist",
-    
- 
     },
-    "include": ["src/index.ts"],
+    "include": [
+        "src/index.ts"
+    ],
     "exclude": [
         "src/node_modules",
         "dist",

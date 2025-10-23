@@ -62,7 +62,7 @@ export type Manifest = [{ id: string; downloadedAt: string }];
 
 export async function downloadAndExtractZip(
   id: DatasetIdentifier,
-  force = false
+  force = false,
 ) {
   // Find the closest config file
   const config = await loadConfig();

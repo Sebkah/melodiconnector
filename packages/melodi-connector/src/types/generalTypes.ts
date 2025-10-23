@@ -51,13 +51,18 @@ export type GenericObservation = {
   attributes: Record<string, string>;
 };
 
-export type DatasetIdentifier = keyof DatasetShapeMap;
+export type DatasetIdentifier = Prettify<keyof DatasetShapeMap>;
 
-export type DatasetShape<ID extends DatasetIdentifier> = DatasetShapeMap[ID];
+export type DatasetShape<ID extends DatasetIdentifier> = Prettify<
+  DatasetShapeMap[ID]
+>;
 
 export declare function getDataset<ID extends DatasetIdentifier>(
   id: ID
 ): Array<DatasetShape<ID>>;
 
+export type Prettify<T> = { [K in keyof T]: T[K] } & {};
+
 const data = getDataset("DD_CNA_AGREGATS");
+const { dimensions, measures, attributes } = data[0];
 //TODO: dataset could return an object with all the codes used in the dataset
