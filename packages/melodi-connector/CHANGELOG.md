@@ -1,5 +1,11 @@
 # melodi-connector
 
+## 0.0.7
+
+### Patch Changes
+
+- 05b2e5a: test
+
 ## 0.0.6
 
 ### Patch Changes
