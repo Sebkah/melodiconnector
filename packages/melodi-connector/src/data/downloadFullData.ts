@@ -5,9 +5,9 @@ import type { CatalogEntry } from "../types/catalogTypes";
 import type { DatasetIdentifier } from "../types/generalTypes";
 import path from "path";
 import { fileURLToPath, pathToFileURL } from "url";
-
+/* 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.dirname(__filename); */
 
 export const defaultMelodiConfig = {
   dataExportPath: "src/data",
@@ -37,7 +37,7 @@ function findConfigFile(startDir: string): string | null {
 }
 
 export async function loadConfig() {
-  const configPath = findConfigFile(__dirname);
+  /*   const configPath = findConfigFile(__dirname);
   if (!configPath) {
     throw new Error("Config file not found");
   }
@@ -49,9 +49,11 @@ export async function loadConfig() {
   // If no config found, use default
   const config = configModule.config ?? defaultMelodiConfig;
 
-  console.log(`Using config from ${configPath}:`, config);
+  console.log(`Using config from ${configPath}:`, config); */
 
-  return config;
+  return {
+    dataExportPath: "src/data",
+  };
 }
 
 export type MetadataRecord = Record<string, Record<string, string>>;

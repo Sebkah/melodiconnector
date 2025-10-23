@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs"
+    }
   },
   "scripts": {
     "generate:types": "tsx ./src/generators/generateTypes.ts",
@@ -33,13 +37,6 @@
   },
   "type": "module",
   "publishConfig": {
-    "access": "public",
-    "exports": {
-      ".": {
-        "import": "./dist/index.js",
-        "types": "./dist/index.d.ts",
-        "require": "./dist/index.cjs"
-      }
-    }
+    "access": "public"
   }
 }
