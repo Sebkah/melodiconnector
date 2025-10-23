@@ -1,5 +1,11 @@
 # melodi-connector
 
+## 0.0.3
+
+### Patch Changes
+
+- 17b4778: Trying different export options
+
 ## 0.0.2
 
 ### Patch Changes
