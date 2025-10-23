@@ -13,13 +13,13 @@ import {
   InputData,
   jsonInputForTargetLanguage,
 } from "quicktype-core";
-import { type CatalogEntry } from "../types/catalogTypes.js";
+import { type CatalogEntry } from "../types/catalogTypes";
 
 import {
   type DatasetIdentifier,
   type QueryResponseNoType as QueryResponseUnknownDataset,
 } from "../types/generalTypes.js";
-import { traverseObjectOrArray } from "../utils/traverseObjectOrArray.js";
+import { traverseObjectOrArray } from "../utils/traverseObjectOrArray";
 import {
   downloadAndExtractZip,
   extractMetaData,
