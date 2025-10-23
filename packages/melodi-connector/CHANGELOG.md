@@ -1,5 +1,11 @@
 # melodi-connector
 
+## 0.0.6
+
+### Patch Changes
+
+- 7267bf7: try other approach with package.json
+
 ## 0.0.5
 
 ### Patch Changes

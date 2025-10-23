@@ -1,6 +1,6 @@
 {
   "name": "melodi-connector",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "exports": {
     ".": "./src/index.ts"
@@ -30,8 +30,7 @@
     "typescript": "^5.9.2"
   },
   "type": "module",
-
-    "publishConfig": {
+  "publishConfig": {
     "access": "public",
     "exports": {
       ".": {
