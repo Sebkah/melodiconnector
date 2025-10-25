@@ -1,14 +1,15 @@
 {
-  "name": "melodiconnector",
+  "name": "melodi-connector",
   "private": true,
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
+    "release": "node ./scripts/swap-publish.js && pnpm run build && pnpm changeset publish && node ./scripts/swap-publish.js --restore"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.7",
     "prettier": "^3.6.2",
     "turbo": "^2.5.8",
     "typescript": "5.9.2"

@@ -1,10 +1,11 @@
+import { Prettify } from "../types/generalTypes";
 import { DDCNAAGREGATSShape } from "./DD_CNA_AGREGATS";
 import { DDCNAAPUShape } from "./DD_CNA_APU";
 import { DDCNABRANCHESShape } from "./DD_CNA_BRANCHES";
 export type DatasetShapeMap = {
-  "DD_CNA_AGREGATS": DDCNAAGREGATSShape,
-  "DD_CNA_APU": DDCNAAPUShape,
-  "DD_CNA_BRANCHES": DDCNABRANCHESShape,
+  DD_CNA_AGREGATS: Prettify<DDCNAAGREGATSShape>;
+  DD_CNA_APU: DDCNAAPUShape;
+  DD_CNA_BRANCHES: DDCNABRANCHESShape;
 };
 
 export const allDatasetIdentifiers = [

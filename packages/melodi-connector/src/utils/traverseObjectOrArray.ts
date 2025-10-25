@@ -15,8 +15,8 @@ export function traverseObjectOrArray(
   callback: (
     value: any,
     path: (string | number)[],
-    setValue: (newValue: any) => void
-  ) => void
+    setValue: (newValue: any) => void,
+  ) => void,
 ): any {
   // Use a container object to allow mutation of the root reference
   let rootContainer = { value: objOrArrayOrValue };

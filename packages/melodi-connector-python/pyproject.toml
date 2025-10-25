@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "melodi-connector"
+version = "0.0.2"
+description = "Python translation of melodi-connector"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = ["requests>=2.0"]

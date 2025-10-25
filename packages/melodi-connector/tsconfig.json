@@ -1,13 +1,21 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "extends": "@repo/typescript-config/library.json",
     "compilerOptions": {
+        "moduleResolution": "bundler",
+        "strict": true,
+        "declaration": true,
+        "sourceMap": true,
+        "declarationMap": true,
+        "skipLibCheck": true,
         "module": "es2020",
         "outDir": "dist",
-        "rootDir": "src",
     },
+    "include": [
+        "src/index.ts"
+    ],
     "exclude": [
         "src/node_modules",
-        "dist"
+        "dist",
+        "tsup.config.ts",
     ]
 }
