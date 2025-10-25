@@ -1,0 +1,10 @@
+{
+  "name": "melodi-connector-python",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "python -m pip install -r requirements.txt && python -m build",
+    "lint": "echo \"no-op lint for python\" && exit 0",
+    "dev": "echo \"dev no-op\""
+  }
+}

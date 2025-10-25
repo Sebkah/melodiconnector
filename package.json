@@ -6,7 +6,7 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "release": "node ./scripts/swap-publish.js && pnpm run build && pnpm changeset publish"
+    "release": "node ./scripts/swap-publish.js && pnpm run build && pnpm changeset publish && node ./scripts/swap-publish.js --restore"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.7",
