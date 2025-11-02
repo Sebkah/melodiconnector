@@ -1,7 +1,7 @@
 import AdmZip from "adm-zip";
 import { writeFileSync, mkdirSync, existsSync, readFileSync } from "fs";
 import Papa from "papaparse";
-import type { CatalogEntry } from "../types/catalogTypes";
+import type { CatalogEntry } from "../types/queryResponse/catalogResponse";
 import type { DatasetIdentifier } from "../types/generalTypes";
 import path from "path";
 import { fileURLToPath, pathToFileURL } from "url";
@@ -62,7 +62,7 @@ export type Manifest = [{ id: string; downloadedAt: string }];
 
 export async function downloadAndExtractZip(
   id: DatasetIdentifier,
-  force = false,
+  force = false
 ) {
   // Find the closest config file
   const config = await loadConfig();

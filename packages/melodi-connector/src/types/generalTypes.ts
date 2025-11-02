@@ -1,11 +1,18 @@
-import { get } from "node:http";
-import type { DatasetShapeMap } from "../datasetShapes/datasetShapes.js";
+import {
+  DatasetCodeMap,
+  DatasetIdentifier,
+  DatasetShape,
+  DatasetShapeMap,
+} from "./datasetShapes/datasetsMaps";
+import { SupportedLanguages, Translated } from "./utils";
 
-export const supportedLanguages = ["fr", "en"] as const;
-export type SupportedLanguages = (typeof supportedLanguages)[number];
-export type Translated = {
-  lang: SupportedLanguages;
-  content: string;
+type Paging = {
+  first: string;
+  previous: string;
+  next: string;
+  last: string;
+  isLast: boolean;
+  count: number;
 };
 
 export type QueryResponse<D extends DatasetIdentifier> = {
@@ -16,14 +23,7 @@ export type QueryResponse<D extends DatasetIdentifier> = {
     id: string;
     label: Translated[];
   };
-  paging: {
-    first: string;
-    previous: string;
-    next: string;
-    last: string;
-    isLast: boolean;
-    count: number;
-  };
+  paging: Paging;
   observations: DatasetShape<D>[];
 };
 
@@ -34,35 +34,56 @@ export type QueryResponseNoType = {
     id: string;
     label: Translated[];
   };
-  paging: {
-    first: string;
-    previous: string;
-    next: string;
-    last: string;
-    isLast: boolean;
-    count: number;
-  };
+  paging: Paging;
   observations: GenericObservation[];
 };
 
+export type Filter<D extends DatasetIdentifier> = Partial<{
+  [K in keyof DatasetShapeMap[D]["dimensions"]]: ReadonlyArray<
+    DatasetShapeMap[D]["dimensions"][K]
+  >;
+}> &
+  Partial<{
+    [K in keyof DatasetShapeMap[D]["attributes"]]: ReadonlyArray<
+      DatasetShapeMap[D]["attributes"][K]
+    >;
+  }>;
+
+export type QueryResponseFiltered<
+  D extends DatasetIdentifier,
+  F extends Filter<D>,
+> = {
+  observations: Array<{
+    attributes: {
+      [K in keyof DatasetShape<D>["attributes"]]: K extends keyof F
+        ? F[K] extends ReadonlyArray<infer U>
+          ? U
+          : DatasetShape<D>["attributes"][K]
+        : DatasetShape<D>["attributes"][K];
+    };
+    dimensions: {
+      [K in keyof DatasetShape<D>["dimensions"]]: K extends keyof F
+        ? F[K] extends ReadonlyArray<infer U>
+          ? U
+          : DatasetShape<D>["dimensions"][K]
+        : DatasetShape<D>["dimensions"][K];
+    };
+    measure: number;
+  }>;
+  paging: Paging;
+};
+
 export type GenericObservation = {
+  measure: number;
   dimensions: Record<string, string>;
-  measures: number;
+  measures: {
+    OBS_VALUE_NIVEAU?: {
+      value: number;
+    };
+  };
   attributes: Record<string, string>;
 };
 
-export type DatasetIdentifier = Prettify<keyof DatasetShapeMap>;
-
-export type DatasetShape<ID extends DatasetIdentifier> = Prettify<
-  DatasetShapeMap[ID]
->;
-
 export declare function getDataset<ID extends DatasetIdentifier>(
   id: ID
-): Array<DatasetShape<ID>>;
-
-export type Prettify<T> = { [K in keyof T]: T[K] } & {};
-
-const data = getDataset("DD_CNA_AGREGATS");
-const { dimensions, measures, attributes } = data[0];
-//TODO: dataset could return an object with all the codes used in the dataset
+): { observations: Array<DatasetShape<ID>>; codes: DatasetCodeMap<ID> };

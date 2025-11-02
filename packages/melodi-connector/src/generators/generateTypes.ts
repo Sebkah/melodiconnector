@@ -8,23 +8,25 @@ import {
 } from "node:fs";
 import AdmZip from "adm-zip";
 import Papa from "papaparse";
-import {
-  quicktype,
-  InputData,
-  jsonInputForTargetLanguage,
-} from "quicktype-core";
-import { type CatalogEntry } from "../types/catalogTypes";
+
+import { type CatalogEntry } from "../types/queryResponse/catalogResponse";
 
 import {
   type DatasetIdentifier,
   type QueryResponseNoType as QueryResponseUnknownDataset,
-} from "../types/generalTypes.js";
+} from "../types/generalTypes";
 import { traverseObjectOrArray } from "../utils/traverseObjectOrArray";
 import {
   downloadAndExtractZip,
   extractMetaData,
   type MetadataRecord,
-} from "../data/downloadFullData.js";
+} from "../data/downloadFullData";
+import {
+  jsonInputForTargetLanguage,
+  InputData,
+} from "quicktype-core/dist/input/Inputs";
+import { quicktype } from "quicktype-core/dist/Run";
+import { fetchCatalog } from "./generateResponseTypes";
 
 function clearOrCreateFile(fileName: string) {
   if (existsSync(fileName)) {
@@ -33,32 +35,13 @@ function clearOrCreateFile(fileName: string) {
     writeFileSync(fileName, "", null);
   }
 }
-async function fetchCatalog(): Promise<{
-  ids: DatasetIdentifier[];
-  descriptions: string[];
-}> {
-  const catalogUrl = "https://api.insee.fr/melodi/catalog/all";
-  const response = await fetch(catalogUrl);
-  const data: CatalogEntry[] = await response.json();
-
-  const ids = data.map((entry) => entry.identifier);
-  const descriptions = data.map(
-    (entry) =>
-      `/** ${entry.title[0]!.content} \n  ${entry.description[0]!.content} \n ${entry.description[1]!.content} \n */`,
-  );
-
-  return { ids, descriptions } as {
-    ids: DatasetIdentifier[];
-    descriptions: string[];
-  };
-}
 
 //XXX: refactor those
 async function generateTypesForDataset(
   id: string,
   description: string,
   metadata: MetadataRecord | null,
-  i: number,
+  i: number
 ): Promise<{ mapEntry: string; importStatement: string } | null> {
   let res;
   try {
@@ -153,7 +136,7 @@ async function generateTypesForDataset(
           // remove spaces and "'"
           const valueWithoutSpaces = meta[key]!.replace(/\s+/g, "_").replace(
             /'/g,
-            "",
+            ""
           );
 
           header += `\n /** ${meta[key]} */ \n "${valueWithoutSpaces}_${key}": "${key}",`;
@@ -167,7 +150,7 @@ async function generateTypesForDataset(
         // XXX enable a more relaxed type
         modifiedLine = modifiedLine.replace(
           /:\s*string;/,
-          `: ${prop}_code_values ;`,
+          `: ${prop}_code_values ;`
         );
       }
     }
@@ -201,7 +184,7 @@ async function generateTypesForDataset(
   console.log(`Generated types for dataset: ${id}`);
   if (fail) {
     console.log(
-      `  Note: There were issues generating types for dataset: ${id}`,
+      `  Note: There were issues generating types for dataset: ${id}`
     );
   }
 

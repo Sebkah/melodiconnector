@@ -39,3 +39,5 @@ yarn-error.log*
 
 # sample data
 *_sample.json
+
+packages/melodi-connector/src/data/*
