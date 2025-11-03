@@ -7,15 +7,9 @@ import {
   InputData,
   quicktype,
 } from "quicktype-core";
-import { DatasetIdentifier } from "../types/generalTypes";
-import { allDatasetIdentifiers } from "../datasetShapes/datasetShapes";
-import { existsSync } from "fs";
-import { readJsonSync } from "fs-extra/esm";
-import { wait } from "../utils/wait";
-import {
-  fetchAndCacheDatasetsRanges,
-  getDatasetRangeFromCache,
-} from "./fetchers/rangesFetcher";
+import { getDatasetRangeFromCache } from "./fetchers/rangesFetcher";
+import { allDatasetIdentifiers } from "../types/queryResponse/datasetIdentifiers";
+import { DatasetIdentifier } from "../types/datasetShapes/datasetsMaps";
 
 // I. Generate catalog response types
 export async function fetchCatalog() {
@@ -54,15 +48,15 @@ const generateCatalogResponseTypes = async (catalogData: CatalogEntry[]) => {
 
   // Write the catalog entries to file
   for (const entry of catalogData)
-    outputJSONSync(
-      `src/data/catalog/${entry.identifier}_catalog.json`,
-      entry,
-      { spaces: 2 }
-    );
+    outputJSONSync(`src/data/catalog/${entry.identifier}_catalog.json`, entry, {
+      spaces: 2,
+    });
 };
 
 // II. Generate dataset identifiers
-const generateDatasetIdentifiers = async (catalogData: CatalogEntry[]) => {
+const generateDatasetIdentifiersandInfo = async (
+  catalogData: CatalogEntry[]
+) => {
   const datasetIdentifiers = catalogData.map((entry) => entry.identifier);
 
   let header = "";
@@ -73,9 +67,20 @@ const generateDatasetIdentifiers = async (catalogData: CatalogEntry[]) => {
   identifiersContent += datasetIdentifiers.map((id) => `  "${id}",`).join("\n");
   identifiersContent += `\n] as const;\n\n`;
 
+  let infoContent = "";
+  infoContent += "export const datasetInfos = {\n";
+  for (const entry of catalogData) {
+    const relevantInfo = {
+      title: entry.title,
+      description: entry.description,
+    };
+    infoContent += `  "${entry.identifier}": ${JSON.stringify(relevantInfo)},\n`;
+  }
+  infoContent += "};\n";
+
   outputFileSync(
     "src/types/catalog/datasetIdentifiers.ts",
-    header + identifiersContent
+    header + identifiersContent + infoContent
   );
 };
 
@@ -117,8 +122,8 @@ const generateDatasetRangeResponseTypes = async () => {
 
 export const generateResponseTypes = async () => {
   const catalogData = await fetchCatalog();
-  /*   await generateDatasetIdentifiers(catalogData); */
-  await generateCatalogResponseTypes(catalogData);
+  await generateDatasetIdentifiersandInfo(catalogData);
+  /*   await generateCatalogResponseTypes(catalogData); */
   /*   await fetchAndCacheDatasetsRanges(); */
   /*   await generateDatasetRangeResponseTypes(); */
 };

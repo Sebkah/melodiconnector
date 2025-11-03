@@ -6,50 +6,25 @@ import {
 import { GenericObservation, QueryResponseNoType } from "../types/generalTypes";
 import {
   allDatasetIdentifiers,
-  DatasetIdentifier,
+  AllDatasetIdentifier,
 } from "../types/queryResponse/datasetIdentifiers";
-import { traverseObjectOrArray } from "../utils/traverseObjectOrArray";
+
 import { wait } from "../utils/wait";
 
 import { getDatasetFromCache } from "./fetchers/datasetFetcher";
 import { outputFileSync, outputJSONSync, readJsonSync } from "fs-extra/esm";
 import { CatalogEntry } from "../types/queryResponse/catalogResponse";
 import { DatasetRangeResponse } from "../types/queryResponse/datasetRangeResponse";
+import { parseData } from "../utils/parseData";
 
-const generateDatasetTypes = async (id: DatasetIdentifier) => {
+const generateDatasetTypes = async (id: AllDatasetIdentifier) => {
   const data = await getDatasetFromCache({
     id,
     maxResult: 9000,
     updateCache: false,
   });
 
-  // These cleanups will need to be done also in the public getter functions
-  // Replace number strings with numbers in the sample JSON
-  traverseObjectOrArray(data, (value, _path, setValue) => {
-    // If the value is a primitive string...
-    if (typeof value === "string" && value.trim() !== "") {
-      const num = Number(value);
-      //... that can be converted to a number...
-      if (!isNaN(num) && /^-?[\d.]+$/.test(value)) {
-        //... then set it as to a number
-        setValue(num);
-      }
-    }
-  });
-
-  // Clean measure field
-  data.observations.forEach((obs: {} & Partial<GenericObservation>) => {
-    if (obs.measures && obs.measures.OBS_VALUE_NIVEAU) {
-      obs.measure = obs.measures.OBS_VALUE_NIVEAU.value;
-      // Delete obs.measures;
-      delete obs.measures;
-      return;
-    }
-    obs.measure = undefined;
-    console.log(
-      `Warning: Observation in dataset ${id} is missing OBS_VALUE_NIVEAU measure.`
-    );
-  });
+  parseData(data.observations);
 
   const dimensions = data.observations.map((obs) => obs.dimensions);
   const attributes = data.observations.map((obs) => obs.attributes);
@@ -178,7 +153,7 @@ const generateDatasetTypes = async (id: DatasetIdentifier) => {
 };
 
 // Generate the possible codes for each dimension for the ranges
-const generateDatasetCodes = async (id: DatasetIdentifier) => {
+const generateDatasetCodes = async (id: AllDatasetIdentifier) => {
   // Get the range
   const { range }: DatasetRangeResponse = readJsonSync(
     `src/data/datasetRanges/${id}_range.json`
@@ -243,9 +218,9 @@ export const generateAllDatasetsTypes = async () => {
     await generateDatasetTypes(id);
 
     //Import shape
-    datasetsMapImports += `import { ${idWithoutUnderscores}_Shape } from "./${id}/${id}_shape.js";\n`;
+    datasetsMapImports += `import { ${idWithoutUnderscores}_Shape } from "./${id}/${id}_shape";\n`;
     // Import codes
-    datasetsMapImports += `import { ${id}_codes } from "./${id}/${id}_codes.js";\n`;
+    datasetsMapImports += `import { ${id}_codes } from "./${id}/${id}_codes";\n`;
 
     //ID to shape map
     datasetIDtoShapeMap += `  "${id}": Prettify<${idWithoutUnderscores}_Shape>;\n`;
@@ -260,17 +235,17 @@ export const generateAllDatasetsTypes = async () => {
   // Write the full map file
   let fullMapFileContent = "";
   fullMapFileContent += `// This file is auto-generated. Do not edit directly.\n\n`;
-  fullMapFileContent += `import { Prettify } from "../utils.js";\n`;
+  fullMapFileContent += `import { Prettify } from "../utils";\n`;
   fullMapFileContent += datasetsMapImports;
   fullMapFileContent += datasetIDtoShapeMap;
   fullMapFileContent += datasetIDtoCodesMap;
 
   // DatasetIdentifier type
   fullMapFileContent +=
-    "export type DatasetIdentifier = Prettify<keyof DatasetShapeMap>; \n";
+    "export type DatasetIdentifier = Prettify<keyof DatasetShapeMap>;\n";
 
   // DatasetCode map type
-  fullMapFileContent += `export type DatasetCodeMap<ID extends DatasetIdentifier> = Prettify< (typeof datasetCodes)[ID] >;\n`;
+  fullMapFileContent += `export type DatasetCodeMap<ID extends DatasetIdentifier> = Prettify<(typeof datasetCodes)[ID]>;\n`;
 
   // DatasetShape type helper
   fullMapFileContent += `export type DatasetShape<ID extends DatasetIdentifier> = Prettify<DatasetShapeMap[ID]>;\n`;

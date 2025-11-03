@@ -1,9 +1,9 @@
 import { existsSync } from "fs";
 import { outputFileSync, readJsonSync } from "fs-extra/esm";
-import { allDatasetIdentifiers } from "../../datasetShapes/datasetShapes";
+
 
 import { wait } from "../../utils/wait";
-import { AllDatasetIdentifier } from "../../types/queryResponse/datasetIdentifiers";
+import { AllDatasetIdentifier, allDatasetIdentifiers } from "../../types/queryResponse/datasetIdentifiers";
 
 // III. Generate dataset range response types
 export async function fetchDatasetRange(id: AllDatasetIdentifier) {

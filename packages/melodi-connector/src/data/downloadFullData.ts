@@ -2,9 +2,9 @@ import AdmZip from "adm-zip";
 import { writeFileSync, mkdirSync, existsSync, readFileSync } from "fs";
 import Papa from "papaparse";
 import type { CatalogEntry } from "../types/queryResponse/catalogResponse";
-import type { DatasetIdentifier } from "../types/generalTypes";
+import type { DatasetIdentifier } from "../types/datasetShapes/datasetsMaps";
 import path from "path";
-import { fileURLToPath, pathToFileURL } from "url";
+
 /* 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename); */

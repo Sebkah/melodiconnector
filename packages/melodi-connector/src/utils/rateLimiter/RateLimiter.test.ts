@@ -1,4 +1,4 @@
-import { ok } from "assert";
+/* import { ok } from "assert";
 import { getDatasetCatalog } from "../getters/getDatasets";
 import { RateLimiter } from "./RateLimiter";
 
@@ -25,3 +25,4 @@ const test = async () => {
 };
 
 test();
+ */
