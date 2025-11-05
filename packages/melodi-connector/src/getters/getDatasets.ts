@@ -6,7 +6,7 @@ import {
   QueryResponse,
   QueryResponseFiltered,
 } from "../types/generalTypes";
-import { parseData, parseNumbers } from "../utils/parseData";
+import { parseData} from "../utils/parseData";
 
 type QueryOption<ID extends DatasetIdentifier> = {
   filter?: Filter<ID>;

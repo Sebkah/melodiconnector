@@ -38,16 +38,53 @@ export type QueryResponseNoType = {
   observations: GenericObservation[];
 };
 
-export type Filter<D extends DatasetIdentifier> = Partial<{
-  [K in keyof DatasetShapeMap[D]["dimensions"]]: ReadonlyArray<
-    DatasetShapeMap[D]["dimensions"][K]
-  >;
-}> &
-  Partial<{
-    [K in keyof DatasetShapeMap[D]["attributes"]]: ReadonlyArray<
-      DatasetShapeMap[D]["attributes"][K]
-    >;
-  }>;
+type DimensionOrAttributeKey<ID extends DatasetIdentifier> =
+  | keyof DatasetShapeMap[ID]["dimensions"]
+  | keyof DatasetShapeMap[ID]["attributes"];
+
+export type Filter<ID extends DatasetIdentifier> = Partial<{
+  // filter = {
+  //   "DIMENSION_KEY_1": ["valueA"],
+  //   "DIMENSION_KEY_2": ["valueA", "valueB"],
+  //   "ATTRIBUTE_KEY": ["valueA", "valueB", "valueC"],
+  //   "...": [...]
+  //  }
+  // The keys can be from either dimensions or attributes
+  [K in DimensionOrAttributeKey<ID>]: K extends keyof DatasetShapeMap[ID]["dimensions"] // If the key is from dimensions, use dimension value array type
+    ? ReadonlyArray<DatasetShapeMap[ID]["dimensions"][K]>
+    : // If the key is from attributes, use attribute value array type
+      K extends keyof DatasetShapeMap[ID]["attributes"]
+      ? ReadonlyArray<DatasetShapeMap[ID]["attributes"][K]>
+      : never;
+}>;
+
+// TODO: we need to improve the nomenclature, because i don't even understant what's what anymore
+// Code should maybe be DatasetCodeMap
+export type Code<D extends DatasetIdentifier> =
+  // Either a map of dimension codes
+  // codeOfDataset = {
+  //   "DIMENSION_KEY_1": {
+  //       "codeLabelA": "codeValueA",
+  //       "codeLabelB": "codeValueB",
+  //       ...
+  //    },
+  //   "DIMENSION_KEY_2": {
+  //       "codeLabelA": "codeValueA",
+  //       "codeLabelB": "codeValueB",
+  //       ...
+  //    },
+  //    ...
+  //}
+  | {
+      [K in keyof DatasetShapeMap[D]["dimensions"]]: ReadonlyArray<
+        DatasetShapeMap[D]["dimensions"][K]
+      >;
+    }
+  | {
+      [K in keyof DatasetShapeMap[D]["attributes"]]: ReadonlyArray<
+        DatasetShapeMap[D]["attributes"][K]
+      >;
+    };
 
 export type QueryResponseFiltered<
   D extends DatasetIdentifier,
@@ -84,6 +121,4 @@ export type GenericObservation = {
   attributes: Record<string, string>;
 };
 
-export declare function getDataset<ID extends DatasetIdentifier>(
-  id: ID
-): { observations: Array<DatasetShape<ID>>; codes: DatasetCodeMap<ID> };
+

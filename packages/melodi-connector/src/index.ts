@@ -4,11 +4,15 @@ import {
   queryDatasetPage,
 } from "./getters/getDatasets";
 import { datasetCodes } from "./types/datasetShapes/datasetsMaps";
-import type { DatasetIdentifier } from "./types/datasetShapes/datasetsMaps";
+import type {
+  DatasetIdentifier,
+  DatasetCodeMap,
+} from "./types/datasetShapes/datasetsMaps";
 import { RateLimiter } from "./utils/rateLimiter/RateLimiter";
 
 import { datasetInfos } from "./types/catalog/datasetIdentifiers";
-import type { Filter } from "./types/generalTypes";
+import type { Filter, Code } from "./types/generalTypes";
+import type { Prettify } from "./types/utils";
 
 export {
   queryDatasetPage,
@@ -17,7 +21,6 @@ export {
   RateLimiter,
   datasetCodes,
   datasetInfos,
-  Filter,
 };
 
-export type { DatasetIdentifier };
+export type { DatasetIdentifier, Filter, DatasetCodeMap, Code, Prettify };

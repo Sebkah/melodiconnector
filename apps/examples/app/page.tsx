@@ -5,20 +5,21 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
 import {
+  Code,
   datasetCodes,
   DatasetIdentifier,
   datasetInfos,
   Filter,
+  queryDataset,
   queryDatasetCount,
   queryDatasetPage,
 } from "melodi-connector";
 import { useTheme } from "next-themes";
-import { Dispatch, Fragment, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, Fragment, SetStateAction, useState } from "react";
 
 import {
   Accordion,
@@ -39,10 +40,27 @@ import { Label } from "@/components/ui/label";
 
 export default function Home() {
   const [id, setIdset] = useState<DatasetIdentifier>("DD_CNA_AGREGATS");
-  const codes = datasetCodes;
+  return <DatasetVisualizer id={id} setIdset={setIdset} />;
+}
+
+const DatasetVisualizer = <ID extends DatasetIdentifier>({
+  id,
+  setIdset,
+}: {
+  id: ID;
+  setIdset: Dispatch<SetStateAction<DatasetIdentifier>>;
+}) => {
+  // This is the codes for the current dataset
+  const currentCodes = datasetCodes[id] as Code<ID>;
+
+  const categories = Object.keys(currentCodes) as (keyof typeof currentCodes)[];
+
+  // This should not be necessary when we've collected all datasets
+  const availableDatasets = Object.keys(datasetCodes) as DatasetIdentifier[];
+
   const infos = datasetInfos;
 
-  const [filter, setFilter] = useState<Filter<typeof id>>({});
+  const [filter, setFilter] = useState<Filter<ID>>({});
 
   const { title, description } = datasetInfos[id];
 
@@ -70,9 +88,9 @@ export default function Home() {
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  {Object.entries(codes).map(([key, value]) => (
-                    <SelectItem key={key} value={key}>
-                      {infos[key as DatasetIdentifier].title[0].content}
+                  {availableDatasets.map((dataset) => (
+                    <SelectItem key={dataset} value={dataset}>
+                      {infos[dataset].title[0].content}
                     </SelectItem>
                   ))}
                 </SelectGroup>
@@ -96,31 +114,31 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <Accordion type="multiple" className=" flex  flex-col gap-4">
-              {Object.entries(codes[id]).map(
-                ([category, codes]: [
-                  string,
-                  Record<string, string | number>,
-                ]) => (
+              {categories.map((category) => {
+                const categoryString = String(category);
+                const codes = currentCodes[category];
+
+                return (
                   <AccordionItem
-                    key={category}
-                    value={category}
+                    key={categoryString}
+                    value={categoryString}
                     className="bg-white/2 px-5 rounded-md"
                   >
                     <AccordionTrigger className="cursor-pointer">
-                      {category}
+                      {categoryString}
                     </AccordionTrigger>
                     <AccordionContent>
-                      <CodeDimension
-                        key={category}
+                      <Category
+                        key={categoryString}
                         category={category}
                         codes={codes}
                         filter={filter}
                         setFilter={setFilter}
-                      ></CodeDimension>
+                      ></Category>
                     </AccordionContent>
                   </AccordionItem>
-                )
-              )}
+                );
+              })}
             </Accordion>
           </CardContent>
         </Card>
@@ -128,7 +146,7 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
 
 const DataPreview = <K extends DatasetIdentifier>({
   id,
@@ -191,7 +209,7 @@ const DataPreview = <K extends DatasetIdentifier>({
               dimensionKeys = dimensionKeys.slice(0, 4);
 
               const dimensionsValues = dimensionKeys.map(
-                (dim) => obs.dimensions[dim]
+                (dim) => obs.dimensions[dim as keyof typeof obs.dimensions]
               );
               const measureValue = obs.measure;
               return (
@@ -201,7 +219,7 @@ const DataPreview = <K extends DatasetIdentifier>({
                       key={dimIndex}
                       className="border-b border-white/10 p-2"
                     >
-                      {dimValue}
+                      {String(dimValue)}
                     </div>
                   ))}
                   <div className="border-b border-white/10 p-2">
@@ -217,23 +235,24 @@ const DataPreview = <K extends DatasetIdentifier>({
   );
 };
 
-const CodeDimension = <ID extends DatasetIdentifier>({
+const Category = <ID extends DatasetIdentifier>({
   codes,
   filter,
   category,
   setFilter,
 }: {
-  codes: Record<string, string | number>;
+  codes: Code<ID>[keyof Code<ID>];
   filter: Filter<ID>;
-  category: string;
+  category: keyof Code<ID>;
   setFilter: Dispatch<SetStateAction<Filter<ID>>>;
 }) => {
   const [search, setSearch] = useState("");
+
   const filteredCodes = Object.fromEntries(
-    Object.entries(codes).filter(([key, value]) =>
-      key.toLowerCase().includes(search.toLowerCase())
+    Object.entries(codes).filter(([, codeValue]) =>
+      codeValue.toString().toLowerCase().includes(search.toLowerCase())
     )
-  );
+  ) as Code<ID>[keyof Code<ID>];
 
   return (
     <div className="">
@@ -245,10 +264,10 @@ const CodeDimension = <ID extends DatasetIdentifier>({
       />
 
       <div className="w-full flex flex-wrap gap-2">
-        {Object.entries(filteredCodes).map(([subKey, subValue], index) => {
+        {Object.entries(filteredCodes).map(([subKey, subValue]) => {
           return (
             <CodeValue
-              key={subValue + category}
+              key={subValue + String(category)}
               dimension={category}
               filter={filter}
               value={subValue}
@@ -264,7 +283,7 @@ const CodeDimension = <ID extends DatasetIdentifier>({
 
 type CodeValueProps<ID extends DatasetIdentifier> = {
   title: string;
-  dimension: string;
+  dimension: keyof Code<ID>;
   value: string | number;
   filter: Filter<ID>;
   setFilter: Dispatch<SetStateAction<Filter<ID>>>;
@@ -283,26 +302,31 @@ const CodeValue = <ID extends DatasetIdentifier>({
   } else {
     titleFormatted = String(title);
   }
-  const on = filter[dimension]?.includes(value);
+  // Type assertion needed because value is union type but filter expects specific dimension type
+  const currentFilterArray = filter[dimension] as
+    | ReadonlyArray<typeof value>
+    | undefined;
+  const on = currentFilterArray?.includes(value);
 
   return (
     <span
       className={`overflow-hidden border-2 rounded-2xl tracking-tigh p-3 ${on && "border-blue-600"} cursor-pointer`}
       onClick={() => {
         setFilter((prev) => {
-          const oldArray = prev[dimension] || [];
+          const oldArray =
+            (prev[dimension] as ReadonlyArray<typeof value> | undefined) || [];
           if (oldArray.includes(value)) {
             // Remove value
             return {
               ...prev,
               [dimension]: oldArray.filter((v) => v !== value),
-            };
+            } as Filter<ID>;
           } else {
             // Add value
             return {
               ...prev,
               [dimension]: [...oldArray, value],
-            };
+            } as Filter<ID>;
           }
         });
       }}
