@@ -6,7 +6,9 @@ import {
   QueryResponse,
   QueryResponseFiltered,
 } from "../types/generalTypes";
-import { parseData} from "../utils/parseData";
+import { parseData } from "../utils/parseData";
+import { RateLimiter } from "../utils/rateLimiter/RateLimiter";
+import { on } from "events";
 
 type QueryOption<ID extends DatasetIdentifier> = {
   filter?: Filter<ID>;
@@ -129,17 +131,29 @@ export async function queryDatasetPage<
   id: D,
   options?: QueryOption<D>
 ): Promise<QueryResponse<D> | QueryResponseFiltered<D, F>> {
+  /* console.log(options); */
   const page = options?.fetchOptions?.page ?? 1;
-  const maxResult = options?.fetchOptions?.maxResult ?? 10000;
+  /*   console.log(`Fetching dataset ${id}, page ${page}`); */
+  const maxResult = options?.fetchOptions?.maxResult ?? 10;
   const params = buildFilterParams(options?.filter);
 
   const queryString = `page=${page}&totalCount=true&maxResult=${maxResult}&${params.toString()}`;
+
   const response = await fetch(
     `https://api.insee.fr/melodi/data/${id}?${queryString}`
   );
 
+  // Probably rate limited
+  if (!response.ok) {
+    throw new Error(`Error fetching dataset page: ${page}`);
+  }
+
   const data = await response.json();
 
+  /*   console.log(
+    `Fetched dataset ${id}, page ${page}, received ${data.observations.length} observations`
+  );
+ */
   parseData(data.observations);
 
   return data;
@@ -189,38 +203,75 @@ export function queryDatasetCount<D extends DatasetIdentifier>(
  * const filtered = await queryDataset('DS_BPE', { region: ['75', '92'] });
  */
 export async function queryDataset<D extends DatasetIdentifier>(
-  id: D
+  id: D,
+  filter?: Filter<D>,
+  rateLimiter?: RateLimiter,
+  onProgress?: (fetchedCount: number, totalCount: number) => void
 ): Promise<OmitPaging<QueryResponse<D>>>;
 export async function queryDataset<
   D extends DatasetIdentifier,
   F extends Filter<D>,
->(id: D, filter: F): Promise<OmitPaging<QueryResponseFiltered<D, F>>>;
+>(
+  id: D,
+  filter: F,
+  rateLimiter?: RateLimiter,
+  onProgress?: (fetchedCount: number, totalCount: number) => void
+): Promise<OmitPaging<QueryResponseFiltered<D, F>>>;
 export async function queryDataset<D extends DatasetIdentifier>(
   id: D,
-  filter?: Filter<D>
+  filter?: Filter<D>,
+  rateLimiter?: RateLimiter,
+  onProgress?: (fetchedCount: number, totalCount: number) => void
 ): Promise<any> {
+  let rateLimiterInstance = rateLimiter ?? new RateLimiter();
+
+  // Getting the count
+  const count = await rateLimiter?.execute(() => queryDatasetCount(id, filter));
+  console.log(`Total observations to fetch for dataset ${id}: ${count}`);
+
+  if (count === 0 || count === undefined) {
+    console.log(
+      `No observations to fetch for dataset ${id}. The filter might be too restrictive.`
+    );
+    return null;
+  }
+
   const fetchOptions = {
     maxResult: 10000,
     page: 1,
   };
   const allObservations: any[] = [];
 
-  // Fetch first page to get metadata
-  const firstData = await queryDatasetPage<D>(id, {
-    filter,
-    fetchOptions,
-  });
-  const { paging, observations, ...metadata } = firstData;
-  allObservations.push(...observations);
-
-  // Fetch remaining pages
-  while (paging.next) {
-    fetchOptions.page++;
-    const data = await queryDatasetPage<D>(id, {
+  const fetchPage = async () => {
+    return queryDatasetPage<D>(id, {
       filter,
       fetchOptions,
     });
+  };
+
+  // Fetch first page to get metadata
+  const firstData = await rateLimiterInstance.execute(() => fetchPage());
+  const { observations, ...metadata } = firstData;
+  allObservations.push(...observations);
+
+  if (onProgress) {
+    onProgress(allObservations.length, count);
+  }
+
+  // Fetch remaining pages
+  let paging = firstData.paging;
+
+  while (paging.isLast === false) {
+    fetchOptions.page++;
+    const data = await rateLimiterInstance.execute(() => fetchPage());
+
     allObservations.push(...data.observations);
+
+    if (onProgress) {
+      onProgress(allObservations.length, count);
+    }
+
+    paging = data.paging;
   }
 
   return {

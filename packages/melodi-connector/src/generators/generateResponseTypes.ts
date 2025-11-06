@@ -62,13 +62,21 @@ const generateDatasetIdentifiersandInfo = async (
   let header = "";
   header += `// This file is auto-generated. Do not edit directly.\n`;
 
+
   let identifiersContent = "";
   identifiersContent += "export const allDatasetIdentifiers = [\n";
   identifiersContent += datasetIdentifiers.map((id) => `  "${id}",`).join("\n");
   identifiersContent += `\n] as const;\n\n`;
 
   let infoContent = "";
-  infoContent += "export const datasetInfos = {\n";
+  infoContent += `export type DatasetInfoMap = Record<
+    typeof allDatasetIdentifiers[number],
+  {
+    title: Array<{ lang: "fr" | "en"; content: string }>;
+    description: Array<{ lang: "fr" | "en"; content: string }>;
+  }
+>;\n\n`;
+  infoContent += "export const datasetInfoMap: DatasetInfoMap = {\n";
   for (const entry of catalogData) {
     const relevantInfo = {
       title: entry.title,

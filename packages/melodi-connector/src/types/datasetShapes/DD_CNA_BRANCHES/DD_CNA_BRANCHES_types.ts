@@ -1,11 +1,11 @@
-import { DD_CNA_BRANCHES_Codes } from "./DD_CNA_BRANCHES_codes";
+import { DD_CNA_BRANCHES_CodeDictionary } from "./DD_CNA_BRANCHES_codeDictionary";
 
 export interface DDCNABRANCHESDimensions {
 /** Possible values for : Transformation chronologique	/	Transformation : 
  * - Aucune	/	None : N
  * - Croissance annuelle 	/	Growth rate, over 1 year : GY
  */
-	TRANSFORMATION: DD_CNA_BRANCHES_Codes["TRANSFORMATION"][keyof DD_CNA_BRANCHES_Codes["TRANSFORMATION"]];
+	TRANSFORMATION: DD_CNA_BRANCHES_CodeDictionary["TRANSFORMATION"][keyof DD_CNA_BRANCHES_CodeDictionary["TRANSFORMATION"]];
 
 /** Possible values for : Valorisation des prix	/	Prices : 
  * - En valeur aux prix courants	/	Current prices : V
@@ -17,12 +17,12 @@ export interface DDCNABRANCHESDimensions {
  * - Au coût de remplacement de l’année précédente	/	'Previous year''s replacement costs' : O
  * - En volume aux prix de l’année précédente (fin d’année) chaînés	/	Chain linked volume (end of year) : LFA
  */
-	PRICES: DD_CNA_BRANCHES_Codes["PRICES"][keyof DD_CNA_BRANCHES_Codes["PRICES"]];
+	PRICES: DD_CNA_BRANCHES_CodeDictionary["PRICES"][keyof DD_CNA_BRANCHES_CodeDictionary["PRICES"]];
 
 /** Possible values for : Type de dépense de consommation	/	Expenditure : 
  * - Total	/	Total : _Z
  */
-	EXPENDITURE: DD_CNA_BRANCHES_Codes["EXPENDITURE"][keyof DD_CNA_BRANCHES_Codes["EXPENDITURE"]];
+	EXPENDITURE: DD_CNA_BRANCHES_CodeDictionary["EXPENDITURE"][keyof DD_CNA_BRANCHES_CodeDictionary["EXPENDITURE"]];
 
 /** Possible values for : Opération comptable	/	Stock, flow and operation : 
  * - Production	/	Output : P1
@@ -53,7 +53,7 @@ export interface DDCNABRANCHESDimensions {
  * - Divergence statistique	/	Statistical discrepancy : YA2
  * - Divergence statistique (approche par la production)	/	Statistical discrepancy (production approach) : YA1
  */
-	STO: DD_CNA_BRANCHES_Codes["STO"][keyof DD_CNA_BRANCHES_Codes["STO"]];
+	STO: DD_CNA_BRANCHES_CodeDictionary["STO"][keyof DD_CNA_BRANCHES_CodeDictionary["STO"]];
 
 /** Possible values for : Position de compte	/	Accounting entry : 
  * - Ressource ou crédit	/	Credit or resources : C
@@ -61,17 +61,17 @@ export interface DDCNABRANCHESDimensions {
  * - Solde	/	Balance ie Credits minus Debits : B
  * - Non applicable	/	Not applicable : _Z
  */
-	ACCOUNTING_ENTRY: DD_CNA_BRANCHES_Codes["ACCOUNTING_ENTRY"][keyof DD_CNA_BRANCHES_Codes["ACCOUNTING_ENTRY"]];
+	ACCOUNTING_ENTRY: DD_CNA_BRANCHES_CodeDictionary["ACCOUNTING_ENTRY"][keyof DD_CNA_BRANCHES_CodeDictionary["ACCOUNTING_ENTRY"]];
 
 /** Possible values for : Produit	/	Product : 
  * - Total	/	Total : _T
  */
-	PRODUCT: DD_CNA_BRANCHES_Codes["PRODUCT"][keyof DD_CNA_BRANCHES_Codes["PRODUCT"]];
+	PRODUCT: DD_CNA_BRANCHES_CodeDictionary["PRODUCT"][keyof DD_CNA_BRANCHES_CodeDictionary["PRODUCT"]];
 
 /** Possible values for : Fréquence	/	Frequency : 
  * - Annuel	/	Annual : A
  */
-	FREQ: DD_CNA_BRANCHES_Codes["FREQ"][keyof DD_CNA_BRANCHES_Codes["FREQ"]];
+	FREQ: DD_CNA_BRANCHES_CodeDictionary["FREQ"][keyof DD_CNA_BRANCHES_CodeDictionary["FREQ"]];
 
 /** Possible values for : Secteur institutionnel	/	Reference sector : 
  * - Économie totale	/	Total economy : S1
@@ -100,18 +100,18 @@ export interface DDCNABRANCHESDimensions {
  * - Administration d’états fédérés (à l’exclusion de la sécurité sociale)	/	State government excluding social security : S1312
  * - Institutions de l’Union Européenne	/	Institutions of the European Union (ESA GFS concept) : SZU
  */
-	REF_SECTOR: DD_CNA_BRANCHES_Codes["REF_SECTOR"][keyof DD_CNA_BRANCHES_Codes["REF_SECTOR"]];
+	REF_SECTOR: DD_CNA_BRANCHES_CodeDictionary["REF_SECTOR"][keyof DD_CNA_BRANCHES_CodeDictionary["REF_SECTOR"]];
 
 /** Possible values for : Période temporelle	/	Time period : 
 - 2023- 2022- 2021- 2020- 2019- 2018- 2017- 2016- 2015- 2014- 2013- 2012- 2011- 2010- 2009- 2008- 2007- 2006- 2005- 2004- 2003- 2002- 2001- 2000- 1999- 1998- 1997- 1996- 1995- 1994- 1993- 1992- 1991- 1990- 1989- 1988- 1987- 1986- 1985- 1984- 1983- 1982- 1981- 1980- 1979- 1978- 1977- 1976- 1975- 1974- 1973- 1972- 1971- 1970- 1969- 1968- 1967- 1966- 1965- 1964- 1963- 1962- 1961- 1960- 1959- 1958- 1957- 1956- 1955- 1954- 1953- 1952- 1951- 1950- 1949- 2024 */
-	TIME_PERIOD: DD_CNA_BRANCHES_Codes["TIME_PERIOD"][keyof DD_CNA_BRANCHES_Codes["TIME_PERIOD"]];
+	TIME_PERIOD: DD_CNA_BRANCHES_CodeDictionary["TIME_PERIOD"][keyof DD_CNA_BRANCHES_CodeDictionary["TIME_PERIOD"]];
 
 /** Possible values for : Zone de contrepartie	/	Counterpart area : 
  * - Monde	/	World (all areas, including reference area, including IO) : W0
  * - Territoire national	/	Domestic (home or reference area) : W2
  * - Intérieur vis-à-vis du monde plus reste du monde vis-à-vis de l'intérieur	/	Domestic vis-à-vis world plus rest of the world vis-à-vis domestic : W08
  */
-	COUNTERPART_AREA: DD_CNA_BRANCHES_Codes["COUNTERPART_AREA"][keyof DD_CNA_BRANCHES_Codes["COUNTERPART_AREA"]];
+	COUNTERPART_AREA: DD_CNA_BRANCHES_CodeDictionary["COUNTERPART_AREA"][keyof DD_CNA_BRANCHES_CodeDictionary["COUNTERPART_AREA"]];
 
 /** Possible values for : Unité de mesure	/	Unit measure : 
  * - Devise nationale (Euros)	/	Domestic currency (Euros) : XDC
@@ -121,13 +121,13 @@ export interface DDCNABRANCHESDimensions {
  * - Heures travaillées	/	Hours worked : HW
  * - Durée annuelle travaillée	/	DAT : DAT
  */
-	UNIT_MEASURE: DD_CNA_BRANCHES_Codes["UNIT_MEASURE"][keyof DD_CNA_BRANCHES_Codes["UNIT_MEASURE"]];
+	UNIT_MEASURE: DD_CNA_BRANCHES_CodeDictionary["UNIT_MEASURE"][keyof DD_CNA_BRANCHES_CodeDictionary["UNIT_MEASURE"]];
 
 /** Possible values for : Classe d'actifs passifs	/	Instrument asset : 
  * - Total	/	Total : _Z
  * - Actifs fixes par type d’actifs (brut)	/	Fixed assets by type of asset (gross) : N11G
  */
-	INSTR_ASSET: DD_CNA_BRANCHES_Codes["INSTR_ASSET"][keyof DD_CNA_BRANCHES_Codes["INSTR_ASSET"]];
+	INSTR_ASSET: DD_CNA_BRANCHES_CodeDictionary["INSTR_ASSET"][keyof DD_CNA_BRANCHES_CodeDictionary["INSTR_ASSET"]];
 
 /** Possible values for : Activité économique	/	Economic activity : 
  * - Agriculture, sylviculture et pêche	/	Agriculture, forestry and fishing : A
@@ -280,7 +280,7 @@ export interface DDCNABRANCHESDimensions {
  * - Fabrication de produits à base de tabac	/	Manufacture of tobacco products : 138G_C12Z
  * - Total	/	Total : _T
  */
-	ACTIVITY: DD_CNA_BRANCHES_Codes["ACTIVITY"][keyof DD_CNA_BRANCHES_Codes["ACTIVITY"]];
+	ACTIVITY: DD_CNA_BRANCHES_CodeDictionary["ACTIVITY"][keyof DD_CNA_BRANCHES_CodeDictionary["ACTIVITY"]];
 
 }
 
@@ -291,33 +291,33 @@ export interface DDCNABRANCHESAttributes {
  * - Valeur manquante : les données existent mais ne sont pas collectées (non disponible : nd)	/	Missing value : data exist but were not collected : L
  * - Valeur manquante : les données n’existent pas (sans objet : so)	/	Missing value : data cannot exist : M
  */
-	OBS_STATUS: DD_CNA_BRANCHES_Codes["OBS_STATUS"][keyof DD_CNA_BRANCHES_Codes["OBS_STATUS"]];
+	OBS_STATUS: DD_CNA_BRANCHES_CodeDictionary["OBS_STATUS"][keyof DD_CNA_BRANCHES_CodeDictionary["OBS_STATUS"]];
 
     LAST_UPDATE:       null;
     TABLE_IDENTIFIER:  null;
 /** Possible values for : Décimales	/	Decimals : 
 - 1- 3 */
-	DECIMALS: DD_CNA_BRANCHES_Codes["DECIMALS"][keyof DD_CNA_BRANCHES_Codes["DECIMALS"]];
+	DECIMALS: DD_CNA_BRANCHES_CodeDictionary["DECIMALS"][keyof DD_CNA_BRANCHES_CodeDictionary["DECIMALS"]];
 
 /** Possible values for : Quantité d'unités (en puissance de 10)	/	Quantity of units (in power of 10) : 
 - 6- 0- 3 */
-	UNIT_MULT: DD_CNA_BRANCHES_Codes["UNIT_MULT"][keyof DD_CNA_BRANCHES_Codes["UNIT_MULT"]];
+	UNIT_MULT: DD_CNA_BRANCHES_CodeDictionary["UNIT_MULT"][keyof DD_CNA_BRANCHES_CodeDictionary["UNIT_MULT"]];
 
     REF_PERIOD_DETAIL: null;
 /** Possible values for : Statut de confidentialité	/	Confidentiality status : 
  * - Diffusable	/	Free for publication : F
  */
-	CONF_STATUS: DD_CNA_BRANCHES_Codes["CONF_STATUS"][keyof DD_CNA_BRANCHES_Codes["CONF_STATUS"]];
+	CONF_STATUS: DD_CNA_BRANCHES_CodeDictionary["CONF_STATUS"][keyof DD_CNA_BRANCHES_CodeDictionary["CONF_STATUS"]];
 
 /** Possible values for : Version	/	Version : 
  * - Provisoire	/	Provisional : PROV
  * - Semi-définitif	/	Semi-final : SD
  * - Définitif	/	Final : D
  */
-	OBS_STATUS_FR: DD_CNA_BRANCHES_Codes["OBS_STATUS_FR"][keyof DD_CNA_BRANCHES_Codes["OBS_STATUS_FR"]];
+	OBS_STATUS_FR: DD_CNA_BRANCHES_CodeDictionary["OBS_STATUS_FR"][keyof DD_CNA_BRANCHES_CodeDictionary["OBS_STATUS_FR"]];
 
 /** Possible values for : Année de référence de l'indice de prix	/	Reference year price : 
 - 2020 */
-	REF_YEAR_PRICE: DD_CNA_BRANCHES_Codes["REF_YEAR_PRICE"][keyof DD_CNA_BRANCHES_Codes["REF_YEAR_PRICE"]];
+	REF_YEAR_PRICE: DD_CNA_BRANCHES_CodeDictionary["REF_YEAR_PRICE"][keyof DD_CNA_BRANCHES_CodeDictionary["REF_YEAR_PRICE"]];
 
 }

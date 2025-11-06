@@ -1,4 +1,4 @@
-import { DD_CNA_APU_Codes } from "./DD_CNA_APU_codes";
+import { DD_CNA_APU_CodeDictionary } from "./DD_CNA_APU_codeDictionary";
 
 export interface DDCNAAPUDimensions {
 /** Possible values for : Transformation chronologique	/	Transformation : 
@@ -6,26 +6,26 @@ export interface DDCNAAPUDimensions {
  * - Croissance annuelle de l’indice	/	Index growth rate, over 1 year : GY_IX
  * - Croissance annuelle 	/	Growth rate, over 1 year : GY
  */
-	TRANSFORMATION: DD_CNA_APU_Codes["TRANSFORMATION"][keyof DD_CNA_APU_Codes["TRANSFORMATION"]];
+	TRANSFORMATION: DD_CNA_APU_CodeDictionary["TRANSFORMATION"][keyof DD_CNA_APU_CodeDictionary["TRANSFORMATION"]];
 
 /** Possible values for : Valorisation des prix	/	Prices : 
  * - En valeur aux prix courants	/	Current prices : V
  * - Au coût de remplacement	/	Current replacement cost : U
  */
-	PRICES: DD_CNA_APU_Codes["PRICES"][keyof DD_CNA_APU_Codes["PRICES"]];
+	PRICES: DD_CNA_APU_CodeDictionary["PRICES"][keyof DD_CNA_APU_CodeDictionary["PRICES"]];
 
 /** Possible values for : Maturité	/	Maturity : 
  * - Non applicable	/	Not applicable : _Z
  * - Maturité à l’origine courte (jusqu’à 1 an)	/	Short-term original maturity (up to 1 year) : S
  * - Maturité à l’origine de long terme (Plus d’un an ou non précisé)	/	Long-term original maturity (over 1 year or no stated maturity) : L
  */
-	MATURITY: DD_CNA_APU_Codes["MATURITY"][keyof DD_CNA_APU_Codes["MATURITY"]];
+	MATURITY: DD_CNA_APU_CodeDictionary["MATURITY"][keyof DD_CNA_APU_CodeDictionary["MATURITY"]];
 
 /** Possible values for : Valuation	/	Valuation : 
  * - Evaluation standard	/	Standard valuation based on SNA/ESA : S
  * - Valeur de rédemption	/	Redemption value : R
  */
-	VALUATION: DD_CNA_APU_Codes["VALUATION"][keyof DD_CNA_APU_Codes["VALUATION"]];
+	VALUATION: DD_CNA_APU_CodeDictionary["VALUATION"][keyof DD_CNA_APU_CodeDictionary["VALUATION"]];
 
 /** Possible values for : Type de dépense de consommation	/	Expenditure : 
  * - Total	/	Total : _Z
@@ -33,7 +33,7 @@ export interface DDCNAAPUDimensions {
  * -     10.2 - Vieillesse	/	Old age : GF1002
  * -     10.3 - Survivants	/	Survivors : GF1003
  */
-	EXPENDITURE: DD_CNA_APU_Codes["EXPENDITURE"][keyof DD_CNA_APU_Codes["EXPENDITURE"]];
+	EXPENDITURE: DD_CNA_APU_CodeDictionary["EXPENDITURE"][keyof DD_CNA_APU_CodeDictionary["EXPENDITURE"]];
 
 /** Possible values for : Opération comptable	/	Stock, flow and operation : 
  * - Primes nettes d’assurance-dommages	/	Net non-life insurance premiums : D71
@@ -148,7 +148,7 @@ export interface DDCNAAPUDimensions {
  * - Aides à l’investissement à payer	/	Investment grants payable : D92P
  * - Cotisations sociales effectives obligatoires à la charge des salariés	/	Compulsory employees’ actual social contributions : D613CE
  */
-	STO: DD_CNA_APU_Codes["STO"][keyof DD_CNA_APU_Codes["STO"]];
+	STO: DD_CNA_APU_CodeDictionary["STO"][keyof DD_CNA_APU_CodeDictionary["STO"]];
 
 /** Possible values for : Consolidation	/	Consolidation : 
  * - Consolidé	/	Consolidated : C
@@ -159,7 +159,7 @@ export interface DDCNAAPUDimensions {
  * - FC_INTRA	/	FC_INTRA : FC_INTRA
  * - FC_INTRA_INTER	/	FC_INTRA_INTER : FC_INTRA_INTER
  */
-	CONSOLIDATION: DD_CNA_APU_Codes["CONSOLIDATION"][keyof DD_CNA_APU_Codes["CONSOLIDATION"]];
+	CONSOLIDATION: DD_CNA_APU_CodeDictionary["CONSOLIDATION"][keyof DD_CNA_APU_CodeDictionary["CONSOLIDATION"]];
 
 /** Possible values for : Position de compte	/	Accounting entry : 
  * - Ressource ou crédit	/	Credit or resources : C
@@ -167,17 +167,17 @@ export interface DDCNAAPUDimensions {
  * - Solde	/	Balance ie Credits minus Debits : B
  * - Non applicable	/	Not applicable : _Z
  */
-	ACCOUNTING_ENTRY: DD_CNA_APU_Codes["ACCOUNTING_ENTRY"][keyof DD_CNA_APU_Codes["ACCOUNTING_ENTRY"]];
+	ACCOUNTING_ENTRY: DD_CNA_APU_CodeDictionary["ACCOUNTING_ENTRY"][keyof DD_CNA_APU_CodeDictionary["ACCOUNTING_ENTRY"]];
 
 /** Possible values for : Produit	/	Product : 
  * - Total	/	Total : _T
  */
-	PRODUCT: DD_CNA_APU_Codes["PRODUCT"][keyof DD_CNA_APU_Codes["PRODUCT"]];
+	PRODUCT: DD_CNA_APU_CodeDictionary["PRODUCT"][keyof DD_CNA_APU_CodeDictionary["PRODUCT"]];
 
 /** Possible values for : Fréquence	/	Frequency : 
  * - Annuel	/	Annual : A
  */
-	FREQ: DD_CNA_APU_Codes["FREQ"][keyof DD_CNA_APU_Codes["FREQ"]];
+	FREQ: DD_CNA_APU_CodeDictionary["FREQ"][keyof DD_CNA_APU_CodeDictionary["FREQ"]];
 
 /** Possible values for : Secteur institutionnel	/	Reference sector : 
  * - Administration d’états fédérés (à l’exclusion de la sécurité sociale)	/	State government excluding social security : S1312
@@ -194,24 +194,24 @@ export interface DDCNAAPUDimensions {
  * - Administrations publiques et institutions et organes de l’Union européenne	/	General government and institutions of the European Union (ESA GFS concept) : SZV
  * - Organismes divers d’administration locale	/	Local government, extra-budgetary units : S13132
  */
-	REF_SECTOR: DD_CNA_APU_Codes["REF_SECTOR"][keyof DD_CNA_APU_Codes["REF_SECTOR"]];
+	REF_SECTOR: DD_CNA_APU_CodeDictionary["REF_SECTOR"][keyof DD_CNA_APU_CodeDictionary["REF_SECTOR"]];
 
 /** Possible values for : Période temporelle	/	Time period : 
 - 2021- 2024- 2004- 2003- 1991- 2002- 1983- 1990- 1988- 2022- 1978- 2008- 1994- 1986- 1985- 1993- 1992- 2010- 2001- 1982- 2014- 2020- 2000- 2018- 2012- 1971- 2016- 1976- 2017- 2006- 2023- 1995- 1997- 1981- 1996- 2009- 2015- 2019- 1989- 2011- 1970- 2005- 2007- 1966- 1979- 1998- 1975- 1984- 1987- 1980- 2013- 1954- 1999- 1951- 1962- 1949- 1956- 1955- 1969- 1953- 1968- 1961- 1959- 1977- 1974- 1957- 1972- 1963- 1950- 1960- 1958- 1967- 1965- 1952- 1964- 1973 */
-	TIME_PERIOD: DD_CNA_APU_Codes["TIME_PERIOD"][keyof DD_CNA_APU_Codes["TIME_PERIOD"]];
+	TIME_PERIOD: DD_CNA_APU_CodeDictionary["TIME_PERIOD"][keyof DD_CNA_APU_CodeDictionary["TIME_PERIOD"]];
 
 /** Possible values for : Zone de contrepartie	/	Counterpart area : 
  * - Monde	/	World (all areas, including reference area, including IO) : W0
  * - Institutions de l’Union Européenne	/	All European Community Institutions, Organs and Organisms, including ECB, ESM and EFSF : 4Y
  */
-	COUNTERPART_AREA: DD_CNA_APU_Codes["COUNTERPART_AREA"][keyof DD_CNA_APU_Codes["COUNTERPART_AREA"]];
+	COUNTERPART_AREA: DD_CNA_APU_CodeDictionary["COUNTERPART_AREA"][keyof DD_CNA_APU_CodeDictionary["COUNTERPART_AREA"]];
 
 /** Possible values for : Unité de mesure	/	Unit measure : 
  * - Devise nationale (Euros)	/	Domestic currency (Euros) : XDC
  * - Indice	/	Index : IX
  * - Pourcentage	/	Percent : PT
  */
-	UNIT_MEASURE: DD_CNA_APU_Codes["UNIT_MEASURE"][keyof DD_CNA_APU_Codes["UNIT_MEASURE"]];
+	UNIT_MEASURE: DD_CNA_APU_CodeDictionary["UNIT_MEASURE"][keyof DD_CNA_APU_CodeDictionary["UNIT_MEASURE"]];
 
 /** Possible values for : Secteur institutionnel de contrepartie	/	Counterpart sector : 
  * - Économie totale	/	Total economy : S1
@@ -222,7 +222,7 @@ export interface DDCNAAPUDimensions {
  * - Administration d’états fédérés (à l’exclusion de la sécurité sociale)	/	State government excluding social security : S1312
  * - Reste du monde	/	Rest of the world : S2
  */
-	COUNTERPART_SECTOR: DD_CNA_APU_Codes["COUNTERPART_SECTOR"][keyof DD_CNA_APU_Codes["COUNTERPART_SECTOR"]];
+	COUNTERPART_SECTOR: DD_CNA_APU_CodeDictionary["COUNTERPART_SECTOR"][keyof DD_CNA_APU_CodeDictionary["COUNTERPART_SECTOR"]];
 
 /** Possible values for : Classe d'actifs passifs	/	Instrument asset : 
  * - Total	/	Total : _Z
@@ -236,12 +236,12 @@ export interface DDCNAAPUDimensions {
  * - Dette au sens de Maastricht	/	Maastricht debt : GD
  * - Dette nette	/	Net debt : DETNET
  */
-	INSTR_ASSET: DD_CNA_APU_Codes["INSTR_ASSET"][keyof DD_CNA_APU_Codes["INSTR_ASSET"]];
+	INSTR_ASSET: DD_CNA_APU_CodeDictionary["INSTR_ASSET"][keyof DD_CNA_APU_CodeDictionary["INSTR_ASSET"]];
 
 /** Possible values for : Activité économique	/	Economic activity : 
  * - Total	/	Total : _T
  */
-	ACTIVITY: DD_CNA_APU_Codes["ACTIVITY"][keyof DD_CNA_APU_Codes["ACTIVITY"]];
+	ACTIVITY: DD_CNA_APU_CodeDictionary["ACTIVITY"][keyof DD_CNA_APU_CodeDictionary["ACTIVITY"]];
 
 }
 
@@ -252,30 +252,30 @@ export interface DDCNAAPUAttributes {
  * - Normale	/	Normal : A
  * - Valeur manquante : les données existent mais ne sont pas collectées (non disponible : nd)	/	Missing value : data exist but were not collected : L
  */
-	OBS_STATUS: DD_CNA_APU_Codes["OBS_STATUS"][keyof DD_CNA_APU_Codes["OBS_STATUS"]];
+	OBS_STATUS: DD_CNA_APU_CodeDictionary["OBS_STATUS"][keyof DD_CNA_APU_CodeDictionary["OBS_STATUS"]];
 
     LAST_UPDATE:       null;
     TABLE_IDENTIFIER:  null;
 /** Possible values for : Décimales	/	Decimals : 
 - 1- 0- 3 */
-	DECIMALS: DD_CNA_APU_Codes["DECIMALS"][keyof DD_CNA_APU_Codes["DECIMALS"]];
+	DECIMALS: DD_CNA_APU_CodeDictionary["DECIMALS"][keyof DD_CNA_APU_CodeDictionary["DECIMALS"]];
 
 /** Possible values for : Quantité d'unités (en puissance de 10)	/	Quantity of units (in power of 10) : 
 - 6- 0 */
-	UNIT_MULT: DD_CNA_APU_Codes["UNIT_MULT"][keyof DD_CNA_APU_Codes["UNIT_MULT"]];
+	UNIT_MULT: DD_CNA_APU_CodeDictionary["UNIT_MULT"][keyof DD_CNA_APU_CodeDictionary["UNIT_MULT"]];
 
     REF_PERIOD_DETAIL: null;
 /** Possible values for : Statut de confidentialité	/	Confidentiality status : 
  * - Diffusable	/	Free for publication : F
  */
-	CONF_STATUS: DD_CNA_APU_Codes["CONF_STATUS"][keyof DD_CNA_APU_Codes["CONF_STATUS"]];
+	CONF_STATUS: DD_CNA_APU_CodeDictionary["CONF_STATUS"][keyof DD_CNA_APU_CodeDictionary["CONF_STATUS"]];
 
 /** Possible values for : Version	/	Version : 
  * - Définitif	/	Final : D
  * - Provisoire	/	Provisional : PROV
  * - Semi-définitif	/	Semi-final : SD
  */
-	OBS_STATUS_FR: DD_CNA_APU_Codes["OBS_STATUS_FR"][keyof DD_CNA_APU_Codes["OBS_STATUS_FR"]];
+	OBS_STATUS_FR: DD_CNA_APU_CodeDictionary["OBS_STATUS_FR"][keyof DD_CNA_APU_CodeDictionary["OBS_STATUS_FR"]];
 
     REF_YEAR_PRICE:    null;
 }

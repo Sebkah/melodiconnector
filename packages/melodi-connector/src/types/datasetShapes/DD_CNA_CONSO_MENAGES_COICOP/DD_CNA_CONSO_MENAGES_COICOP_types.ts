@@ -1,4 +1,4 @@
-import { DD_CNA_CONSO_MENAGES_COICOP_Codes } from "./DD_CNA_CONSO_MENAGES_COICOP_codes";
+import { DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary } from "./DD_CNA_CONSO_MENAGES_COICOP_codeDictionary";
 
 export interface DDCNACONSOMENAGESCOICOPDimensions {
 /** Possible values for : Transformation chronologique	/	Transformation : 
@@ -6,7 +6,7 @@ export interface DDCNACONSOMENAGESCOICOPDimensions {
  * - Croissance annuelle de l’indice	/	Index growth rate, over 1 year : GY_IX
  * - Croissance annuelle 	/	Growth rate, over 1 year : GY
  */
-	TRANSFORMATION: DD_CNA_CONSO_MENAGES_COICOP_Codes["TRANSFORMATION"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["TRANSFORMATION"]];
+	TRANSFORMATION: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["TRANSFORMATION"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["TRANSFORMATION"]];
 
 /** Possible values for : Valorisation des prix	/	Prices : 
  * - En valeur aux prix courants	/	Current prices : V
@@ -14,7 +14,7 @@ export interface DDCNACONSOMENAGESCOICOPDimensions {
  * - Aux prix de l’année précédente	/	Previous year prices : Y
  * - En volume aux prix de l’année précédente chaînés	/	Chain linked volume : L
  */
-	PRICES: DD_CNA_CONSO_MENAGES_COICOP_Codes["PRICES"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["PRICES"]];
+	PRICES: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["PRICES"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["PRICES"]];
 
 /** Possible values for : Type de dépense de consommation	/	Expenditure : 
  * - Total	/	Total : _Z
@@ -204,7 +204,7 @@ export interface DDCNACONSOMENAGESCOICOPDimensions {
  * - Logement	/	Housing : CP141
  * - Santé	/	Health : CP142
  */
-	EXPENDITURE: DD_CNA_CONSO_MENAGES_COICOP_Codes["EXPENDITURE"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["EXPENDITURE"]];
+	EXPENDITURE: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["EXPENDITURE"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["EXPENDITURE"]];
 
 /** Possible values for : Opération comptable	/	Stock, flow and operation : 
  * - Dépense de consommation individuelle	/	Individual consumption expenditure : P31
@@ -217,7 +217,7 @@ export interface DDCNACONSOMENAGESCOICOPDimensions {
  * - Coefficient budgétaire	/	Budget coefficient : _COEFF_BUDG
  * - Revenu disponible brut	/	Gross disposable income : B6G
  */
-	STO: DD_CNA_CONSO_MENAGES_COICOP_Codes["STO"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["STO"]];
+	STO: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["STO"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["STO"]];
 
 /** Possible values for : Position de compte	/	Accounting entry : 
  * - Emploi ou débit	/	Debit or uses : D
@@ -225,7 +225,7 @@ export interface DDCNACONSOMENAGESCOICOPDimensions {
  * - Ressource ou crédit	/	Credit or resources : C
  * - Solde	/	Balance ie Credits minus Debits : B
  */
-	ACCOUNTING_ENTRY: DD_CNA_CONSO_MENAGES_COICOP_Codes["ACCOUNTING_ENTRY"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["ACCOUNTING_ENTRY"]];
+	ACCOUNTING_ENTRY: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["ACCOUNTING_ENTRY"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["ACCOUNTING_ENTRY"]];
 
 /** Possible values for : Produit	/	Product : 
  * - Part de la dépense liée au logement dans le revenu disponible brut	/	Share of insurance (excluding life insurance) and financial services in gross disposable income : CP_ASSUR_SERV_FIN
@@ -234,12 +234,12 @@ export interface DDCNACONSOMENAGESCOICOPDimensions {
  * - Part des cantines dans le revenu disponible brut	/	Share of expenditure related to housing in gross disposable income : CP_DEP_LOGT_REVENU
  * - Total	/	Total : _T
  */
-	PRODUCT: DD_CNA_CONSO_MENAGES_COICOP_Codes["PRODUCT"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["PRODUCT"]];
+	PRODUCT: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["PRODUCT"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["PRODUCT"]];
 
 /** Possible values for : Fréquence	/	Frequency : 
  * - Annuel	/	Annual : A
  */
-	FREQ: DD_CNA_CONSO_MENAGES_COICOP_Codes["FREQ"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["FREQ"]];
+	FREQ: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["FREQ"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["FREQ"]];
 
 /** Possible values for : Secteur institutionnel	/	Reference sector : 
  * - Administrations publiques	/	General government : S13
@@ -248,35 +248,35 @@ export interface DDCNACONSOMENAGESCOICOPDimensions {
  * - Institutions sans but lucratif au services des ménages	/	Non profit institutions serving households : S15
  * - Économie totale	/	Total economy : S1
  */
-	REF_SECTOR: DD_CNA_CONSO_MENAGES_COICOP_Codes["REF_SECTOR"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["REF_SECTOR"]];
+	REF_SECTOR: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["REF_SECTOR"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["REF_SECTOR"]];
 
 /** Possible values for : Période temporelle	/	Time period : 
 - 2023- 2022- 2021- 2020- 2019- 2018- 2017- 2016- 2015- 2014- 2013- 2012- 2011- 2010- 2009- 2008- 2007- 2006- 2005- 2004- 2003- 2002- 2001- 2000- 1999- 1998- 1997- 1996- 1995- 1994- 1993- 1992- 1991- 1990- 1989- 1988- 1987- 1986- 1985- 1984- 1983- 1982- 1981- 1980- 1979- 1978- 1977- 1976- 1975- 1974- 1973- 1972- 1971- 1970- 1969- 1968- 1967- 1966- 1965- 1964- 1963- 1962- 1961- 1960- 1959- 1958- 1957- 1956- 1955- 1954- 1953- 1952- 1951- 1950- 1949- 2024 */
-	TIME_PERIOD: DD_CNA_CONSO_MENAGES_COICOP_Codes["TIME_PERIOD"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["TIME_PERIOD"]];
+	TIME_PERIOD: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["TIME_PERIOD"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["TIME_PERIOD"]];
 
 /** Possible values for : Zone de contrepartie	/	Counterpart area : 
  * - Monde	/	World (all areas, including reference area, including IO) : W0
  * - Territoire national	/	Domestic (home or reference area) : W2
  * - Reste du monde	/	Rest of the World : W1
  */
-	COUNTERPART_AREA: DD_CNA_CONSO_MENAGES_COICOP_Codes["COUNTERPART_AREA"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["COUNTERPART_AREA"]];
+	COUNTERPART_AREA: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["COUNTERPART_AREA"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["COUNTERPART_AREA"]];
 
 /** Possible values for : Unité de mesure	/	Unit measure : 
  * - Devise nationale (Euros)	/	Domestic currency (Euros) : XDC
  * - Indice	/	Index : IX
  * - Pourcentage	/	Percent : PT
  */
-	UNIT_MEASURE: DD_CNA_CONSO_MENAGES_COICOP_Codes["UNIT_MEASURE"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["UNIT_MEASURE"]];
+	UNIT_MEASURE: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["UNIT_MEASURE"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["UNIT_MEASURE"]];
 
 /** Possible values for : Classe d'actifs passifs	/	Instrument asset : 
  * - Total	/	Total : _Z
  */
-	INSTR_ASSET: DD_CNA_CONSO_MENAGES_COICOP_Codes["INSTR_ASSET"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["INSTR_ASSET"]];
+	INSTR_ASSET: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["INSTR_ASSET"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["INSTR_ASSET"]];
 
 /** Possible values for : Activité économique	/	Economic activity : 
  * - Total	/	Total : _T
  */
-	ACTIVITY: DD_CNA_CONSO_MENAGES_COICOP_Codes["ACTIVITY"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["ACTIVITY"]];
+	ACTIVITY: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["ACTIVITY"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["ACTIVITY"]];
 
 }
 
@@ -287,33 +287,33 @@ export interface DDCNACONSOMENAGESCOICOPAttributes {
  * - Valeur manquante : les données n’existent pas (sans objet : so)	/	Missing value : data cannot exist : M
  * - Valeur manquante : les données existent mais ne sont pas collectées (non disponible : nd)	/	Missing value : data exist but were not collected : L
  */
-	OBS_STATUS: DD_CNA_CONSO_MENAGES_COICOP_Codes["OBS_STATUS"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["OBS_STATUS"]];
+	OBS_STATUS: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["OBS_STATUS"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["OBS_STATUS"]];
 
     LAST_UPDATE:       null;
     TABLE_IDENTIFIER:  null;
 /** Possible values for : Décimales	/	Decimals : 
 - 1- 3 */
-	DECIMALS: DD_CNA_CONSO_MENAGES_COICOP_Codes["DECIMALS"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["DECIMALS"]];
+	DECIMALS: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["DECIMALS"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["DECIMALS"]];
 
 /** Possible values for : Quantité d'unités (en puissance de 10)	/	Quantity of units (in power of 10) : 
 - 6- 0 */
-	UNIT_MULT: DD_CNA_CONSO_MENAGES_COICOP_Codes["UNIT_MULT"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["UNIT_MULT"]];
+	UNIT_MULT: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["UNIT_MULT"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["UNIT_MULT"]];
 
     REF_PERIOD_DETAIL: null;
 /** Possible values for : Statut de confidentialité	/	Confidentiality status : 
  * - Diffusable	/	Free for publication : F
  */
-	CONF_STATUS: DD_CNA_CONSO_MENAGES_COICOP_Codes["CONF_STATUS"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["CONF_STATUS"]];
+	CONF_STATUS: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["CONF_STATUS"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["CONF_STATUS"]];
 
 /** Possible values for : Version	/	Version : 
  * - Provisoire	/	Provisional : PROV
  * - Semi-définitif	/	Semi-final : SD
  * - Définitif	/	Final : D
  */
-	OBS_STATUS_FR: DD_CNA_CONSO_MENAGES_COICOP_Codes["OBS_STATUS_FR"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["OBS_STATUS_FR"]];
+	OBS_STATUS_FR: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["OBS_STATUS_FR"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["OBS_STATUS_FR"]];
 
 /** Possible values for : Année de référence de l'indice de prix	/	Reference year price : 
 - 2020 */
-	REF_YEAR_PRICE: DD_CNA_CONSO_MENAGES_COICOP_Codes["REF_YEAR_PRICE"][keyof DD_CNA_CONSO_MENAGES_COICOP_Codes["REF_YEAR_PRICE"]];
+	REF_YEAR_PRICE: DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["REF_YEAR_PRICE"][keyof DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary["REF_YEAR_PRICE"]];
 
 }

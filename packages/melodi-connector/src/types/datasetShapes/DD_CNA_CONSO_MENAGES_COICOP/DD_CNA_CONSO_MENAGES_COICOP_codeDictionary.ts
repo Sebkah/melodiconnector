@@ -1,6 +1,6 @@
 // This file is auto-generated. Do not edit directly.
 
-export const DD_CNA_CONSO_MENAGES_COICOP_codes = {
+export const DD_CNA_CONSO_MENAGES_COICOP_codeDictionary = {
  /** Valorisation des prix */
  PRICES: {
  /** Current prices */
@@ -694,4 +694,4 @@ export const DD_CNA_CONSO_MENAGES_COICOP_codes = {
 } as const;
 
 
-export type DD_CNA_CONSO_MENAGES_COICOP_Codes = typeof DD_CNA_CONSO_MENAGES_COICOP_codes;
+export type DD_CNA_CONSO_MENAGES_COICOP_CodeDictionary = typeof DD_CNA_CONSO_MENAGES_COICOP_codeDictionary;

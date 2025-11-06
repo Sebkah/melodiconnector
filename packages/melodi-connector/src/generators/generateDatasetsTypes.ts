@@ -3,7 +3,10 @@ import {
   jsonInputForTargetLanguage,
   quicktype,
 } from "quicktype-core";
-import { GenericObservation, QueryResponseNoType } from "../types/generalTypes";
+import {
+  GenericObservation,
+  GenericQueryResponse,
+} from "../types/generalTypes";
 import {
   allDatasetIdentifiers,
   AllDatasetIdentifier,
@@ -17,6 +20,17 @@ import { CatalogEntry } from "../types/queryResponse/catalogResponse";
 import { DatasetRangeResponse } from "../types/queryResponse/datasetRangeResponse";
 import { parseData } from "../utils/parseData";
 
+// These functions should run after generateResponseTypes.ts
+
+/**
+ * Generates types for a specific dataset
+ * It outputs three files:
+ * - {id}_shape.ts : main shape type
+ * - {id}_types.ts : dimensions, attributes and measure types
+ * - {id}_codeDictionary.ts : possible codes for dimensions/attributes (generated from generateDatasetCodes function)
+ * @param id
+ * @returns
+ */
 const generateDatasetTypes = async (id: AllDatasetIdentifier) => {
   const data = await getDatasetFromCache({
     id,
@@ -24,6 +38,7 @@ const generateDatasetTypes = async (id: AllDatasetIdentifier) => {
     updateCache: false,
   });
 
+  // Parse number strings to numbers and create measure field
   parseData(data.observations);
 
   const dimensions = data.observations.map((obs) => obs.dimensions);
@@ -134,7 +149,7 @@ const generateDatasetTypes = async (id: AllDatasetIdentifier) => {
       codeTypeLine += ` */\n`;
 
       // Insert code type
-      codeTypeLine += `\t${code}: ${id}_Codes["${code}"][keyof ${id}_Codes["${code}"]];\n`;
+      codeTypeLine += `\t${code}: ${id}_CodeDictionary["${code}"][keyof ${id}_CodeDictionary["${code}"]];\n`;
       return codeTypeLine;
     }
     return line;
@@ -143,7 +158,7 @@ const generateDatasetTypes = async (id: AllDatasetIdentifier) => {
   // Write Dimensions, Attributes, Measures types file
   let typeFileContent = "";
   // Import codes
-  typeFileContent += `import { ${id}_Codes } from "./${id}_codes";\n\n`;
+  typeFileContent += `import { ${id}_CodeDictionary } from "./${id}_codeDictionary";\n\n`;
 
   typeFileContent += types.lines.join("\n");
   outputFileSync(
@@ -166,7 +181,7 @@ const generateDatasetCodes = async (id: AllDatasetIdentifier) => {
 
   let fileContent = "";
   fileContent += `// This file is auto-generated. Do not edit directly.\n\n`;
-  fileContent += `export const ${id}_codes = {\n`;
+  fileContent += `export const ${id}_codeDictionary = {\n`;
 
   // Object
   for (const r of range) {
@@ -186,14 +201,21 @@ const generateDatasetCodes = async (id: AllDatasetIdentifier) => {
   fileContent += `} as const;\n`;
 
   // Type from the object
-  fileContent += `\n\nexport type ${id}_Codes = typeof ${id}_codes;\n`;
+  fileContent += `\n\nexport type ${id}_CodeDictionary = typeof ${id}_codeDictionary;\n`;
 
-  outputFileSync(`src/types/datasetShapes/${id}/${id}_codes.ts`, fileContent);
+  outputFileSync(
+    `src/types/datasetShapes/${id}/${id}_codeDictionary.ts`,
+    fileContent
+  );
 
   // Return a list of concept codes
   return range;
 };
 
+/**
+ * Call generateDatasetTypes for all datasets
+ * Generates the global files as well *
+ */
 export const generateAllDatasetsTypes = async () => {
   let count = 0;
 
@@ -205,7 +227,7 @@ export const generateAllDatasetsTypes = async () => {
 
   // ID to codes map init
   let datasetIDtoCodesMap = "";
-  datasetIDtoCodesMap += `\n\nexport const datasetCodes = {\n`;
+  datasetIDtoCodesMap += `\n\nexport const datasetCodeDictionaries = {\n`;
 
   for (const id of allDatasetIdentifiers) {
     // Temporary limit for testing
@@ -220,12 +242,12 @@ export const generateAllDatasetsTypes = async () => {
     //Import shape
     datasetsMapImports += `import { ${idWithoutUnderscores}_Shape } from "./${id}/${id}_shape";\n`;
     // Import codes
-    datasetsMapImports += `import { ${id}_codes } from "./${id}/${id}_codes";\n`;
+    datasetsMapImports += `import { ${id}_codeDictionary } from "./${id}/${id}_codeDictionary";\n`;
 
     //ID to shape map
-    datasetIDtoShapeMap += `  "${id}": Prettify<${idWithoutUnderscores}_Shape>;\n`;
+    datasetIDtoShapeMap += `  "${id}": ${idWithoutUnderscores}_Shape;\n`;
     // ID to codes map
-    datasetIDtoCodesMap += `  "${id}": ${id}_codes,\n`;
+    datasetIDtoCodesMap += `  "${id}": ${id}_codeDictionary,\n`;
 
     count++;
   }
@@ -242,13 +264,13 @@ export const generateAllDatasetsTypes = async () => {
 
   // DatasetIdentifier type
   fullMapFileContent +=
-    "export type DatasetIdentifier = Prettify<keyof DatasetShapeMap>;\n";
+    "export type DatasetIdentifier = keyof DatasetShapeMap;\n";
 
   // DatasetCode map type
-  fullMapFileContent += `export type DatasetCodeMap<ID extends DatasetIdentifier> = Prettify<(typeof datasetCodes)[ID]>;\n`;
+  fullMapFileContent += `export type DatasetCodeDictionaryOf<ID extends DatasetIdentifier> = (typeof datasetCodeDictionaries)[ID];\n`;
 
   // DatasetShape type helper
-  fullMapFileContent += `export type DatasetShape<ID extends DatasetIdentifier> = Prettify<DatasetShapeMap[ID]>;\n`;
+  fullMapFileContent += `export type DatasetShapeOf<ID extends DatasetIdentifier> = DatasetShapeMap[ID];\n`;
 
   outputFileSync(`src/types/datasetShapes/datasetsMaps.ts`, fullMapFileContent);
 };

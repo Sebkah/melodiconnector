@@ -4,7 +4,8 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "generate:types": "tsx ./src/generators/generateTypes.ts",
+    "generate:types": "tsx ./src/generators/generateDatasetsTypes.ts",
+    "generate:response": "tsx ./src/generators/generateResponseTypes.ts",
     "build": "tsup",
     "lint": "tsc --noEmit "
   },

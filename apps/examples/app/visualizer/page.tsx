@@ -9,12 +9,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  Code,
-  datasetCodes,
+  DatasetCodeDictionaryOf,
   DatasetIdentifier,
-  datasetInfos,
   Filter,
-  queryDataset,
   queryDatasetCount,
   queryDatasetPage,
 } from "melodi-connector";
@@ -37,6 +34,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import {
+  CodeDictionaryDimensionKeyOf,
+  CodeDictionaryDimensionValueOf,
+  getAllDatasetInfos,
+  getCodesOfDatasetDimension,
+  getDatasetCodeDictionaryDimensions,
+  getDatasetIdentifiers,
+  getDatasetInfo,
+} from "../../../../packages/melodi-connector/src/types/generalTypes";
 
 export default function Home() {
   const [id, setIdset] = useState<DatasetIdentifier>("DD_CNA_AGREGATS");
@@ -50,19 +56,16 @@ const DatasetVisualizer = <ID extends DatasetIdentifier>({
   id: ID;
   setIdset: Dispatch<SetStateAction<DatasetIdentifier>>;
 }) => {
-  // This is the codes for the current dataset
-  const currentCodes = datasetCodes[id] as Code<ID>;
-
-  const categories = Object.keys(currentCodes) as (keyof typeof currentCodes)[];
+  const dimensions = getDatasetCodeDictionaryDimensions(id);
 
   // This should not be necessary when we've collected all datasets
-  const availableDatasets = Object.keys(datasetCodes) as DatasetIdentifier[];
+  const availableDatasets = getDatasetIdentifiers();
 
-  const infos = datasetInfos;
+  const infos = getAllDatasetInfos();
 
   const [filter, setFilter] = useState<Filter<ID>>({});
 
-  const { title, description } = datasetInfos[id];
+  const { title, description } = getDatasetInfo(id);
 
   const { setTheme } = useTheme();
   setTheme("dark");
@@ -114,9 +117,9 @@ const DatasetVisualizer = <ID extends DatasetIdentifier>({
           </CardHeader>
           <CardContent>
             <Accordion type="multiple" className=" flex  flex-col gap-4">
-              {categories.map((category) => {
-                const categoryString = String(category);
-                const codes = currentCodes[category];
+              {dimensions.map((dimension) => {
+                const categoryString = String(dimension);
+                const codes = getCodesOfDatasetDimension(id, dimension);
 
                 return (
                   <AccordionItem
@@ -130,7 +133,7 @@ const DatasetVisualizer = <ID extends DatasetIdentifier>({
                     <AccordionContent>
                       <Category
                         key={categoryString}
-                        category={category}
+                        dimension={dimension}
                         codes={codes}
                         filter={filter}
                         setFilter={setFilter}
@@ -235,24 +238,28 @@ const DataPreview = <K extends DatasetIdentifier>({
   );
 };
 
-const Category = <ID extends DatasetIdentifier>({
+const Category = <
+  ID extends DatasetIdentifier,
+  D extends CodeDictionaryDimensionKeyOf<ID>,
+>({
   codes,
   filter,
-  category,
+  dimension,
   setFilter,
 }: {
-  codes: Code<ID>[keyof Code<ID>];
+  codes: CodeDictionaryDimensionValueOf<ID, D>;
   filter: Filter<ID>;
-  category: keyof Code<ID>;
+  dimension: D;
   setFilter: Dispatch<SetStateAction<Filter<ID>>>;
 }) => {
   const [search, setSearch] = useState("");
 
+  // XXX: maybe use a type guard here
   const filteredCodes = Object.fromEntries(
-    Object.entries(codes).filter(([, codeValue]) =>
+    Object.entries(codes as Record<string, string>).filter(([, codeValue]) =>
       codeValue.toString().toLowerCase().includes(search.toLowerCase())
     )
-  ) as Code<ID>[keyof Code<ID>];
+  ) as CodeDictionaryDimensionValueOf<ID, D>;
 
   return (
     <div className="">
@@ -264,70 +271,81 @@ const Category = <ID extends DatasetIdentifier>({
       />
 
       <div className="w-full flex flex-wrap gap-2">
-        {Object.entries(filteredCodes).map(([subKey, subValue]) => {
-          return (
-            <CodeValue
-              key={subValue + String(category)}
-              dimension={category}
-              filter={filter}
-              value={subValue}
-              title={String(subKey)}
-              setFilter={setFilter}
-            ></CodeValue>
-          );
-        })}
+        {Object.entries(filteredCodes as Record<string, string>).map(
+          ([subKey, subValue]) => {
+            return (
+              <CodeValue
+                key={subValue + String(dimension)}
+                dimension={dimension}
+                filter={filter}
+                value={
+                  subValue as unknown as CodeDictionaryDimensionValueOf<ID, D>
+                }
+                title={String(subKey)}
+                setFilter={setFilter}
+              ></CodeValue>
+            );
+          }
+        )}
       </div>
     </div>
   );
 };
 
-type CodeValueProps<ID extends DatasetIdentifier> = {
+type CodeValueProps<
+  ID extends DatasetIdentifier,
+  D extends CodeDictionaryDimensionKeyOf<ID>,
+  V extends CodeDictionaryDimensionValueOf<ID, D>,
+> = {
   title: string;
-  dimension: keyof Code<ID>;
-  value: string | number;
+  dimension: D;
+  value: V;
   filter: Filter<ID>;
   setFilter: Dispatch<SetStateAction<Filter<ID>>>;
 };
 
-const CodeValue = <ID extends DatasetIdentifier>({
+const CodeValue = <
+  ID extends DatasetIdentifier,
+  D extends CodeDictionaryDimensionKeyOf<ID>,
+  V extends CodeDictionaryDimensionValueOf<ID, D>,
+>({
   title,
   setFilter,
   dimension,
   filter,
   value,
-}: CodeValueProps<ID>) => {
+}: CodeValueProps<ID, D, V>) => {
   let titleFormatted;
   if (typeof title === "string") {
     titleFormatted = title.split("_")[0];
   } else {
     titleFormatted = String(title);
   }
-  // Type assertion needed because value is union type but filter expects specific dimension type
-  const currentFilterArray = filter[dimension] as
-    | ReadonlyArray<typeof value>
-    | undefined;
-  const on = currentFilterArray?.includes(value);
+  // XXX: I'm not sure why we need assertions but I can't bother to investigate now
+  const currentFilterArray = filter[dimension] as ReadonlyArray<V>;
+
+  const on = currentFilterArray!.includes(value);
 
   return (
     <span
       className={`overflow-hidden border-2 rounded-2xl tracking-tigh p-3 ${on && "border-blue-600"} cursor-pointer`}
       onClick={() => {
         setFilter((prev) => {
-          const oldArray =
-            (prev[dimension] as ReadonlyArray<typeof value> | undefined) || [];
-          if (oldArray.includes(value)) {
+          const oldArray = prev[dimension] as ReadonlyArray<V>;
+          if (oldArray && oldArray.includes(value)) {
             // Remove value
             return {
               ...prev,
               [dimension]: oldArray.filter((v) => v !== value),
-            } as Filter<ID>;
-          } else {
+            };
+          } else if (oldArray) {
             // Add value
             return {
               ...prev,
               [dimension]: [...oldArray, value],
-            } as Filter<ID>;
+            };
           }
+          return prev;
         });
       }}
     >

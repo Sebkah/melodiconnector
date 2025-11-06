@@ -1,6 +1,6 @@
 // This file is auto-generated. Do not edit directly.
 
-export const DD_CNA_AGREGATS_codes = {
+export const DD_CNA_AGREGATS_codeDictionary = {
  /** Valorisation des prix */
  PRICES: {
  /** Current prices */
@@ -1012,4 +1012,4 @@ export const DD_CNA_AGREGATS_codes = {
 } as const;
 
 
-export type DD_CNA_AGREGATS_Codes = typeof DD_CNA_AGREGATS_codes;
+export type DD_CNA_AGREGATS_CodeDictionary = typeof DD_CNA_AGREGATS_codeDictionary;
