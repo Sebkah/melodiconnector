@@ -1,5 +1,6 @@
-import { CatalogEntry, Language } from "../types/queryResponse/catalogResponse";
 
+
+import { CatalogEntry } from "../types/catalog/catalogResponseTypes";
 import { DatasetIdentifier } from "../types/datasetShapes/datasetsMaps";
 import {
   Filter,
@@ -118,18 +119,21 @@ export async function queryDatasetPage<
   F extends Filter<D>,
 >(
   id: D,
-  options: QueryOption<D> & { filter: F }
+  options: QueryOption<D> & { filter: F },
+  rateLimiter?: RateLimiter
 ): Promise<QueryResponseFiltered<D, F>>;
 export async function queryDatasetPage<D extends DatasetIdentifier>(
   id: D,
-  options: QueryOption<D>
+  options: QueryOption<D>,
+  rateLimiter?: RateLimiter
 ): Promise<QueryResponse<D>>;
 export async function queryDatasetPage<
   D extends DatasetIdentifier,
   F extends Filter<D>,
 >(
   id: D,
-  options?: QueryOption<D>
+  options?: QueryOption<D>,
+  rateLimiter?: RateLimiter
 ): Promise<QueryResponse<D> | QueryResponseFiltered<D, F>> {
   /* console.log(options); */
   const page = options?.fetchOptions?.page ?? 1;
@@ -139,9 +143,20 @@ export async function queryDatasetPage<
 
   const queryString = `page=${page}&totalCount=true&maxResult=${maxResult}&${params.toString()}`;
 
-  const response = await fetch(
-    `https://api.insee.fr/melodi/data/${id}?${queryString}`
-  );
+  let response;
+
+  if (rateLimiter) {
+    console.log("Using rate limiter to fetch dataset page");
+    response = await rateLimiter.execute(async () => {
+      return await fetch(
+        `https://api.insee.fr/melodi/data/${id}?${queryString}`
+      );
+    });
+  } else {
+    response = await fetch(
+      `https://api.insee.fr/melodi/data/${id}?${queryString}`
+    );
+  }
 
   // Probably rate limited
   if (!response.ok) {
@@ -237,20 +252,24 @@ export async function queryDataset<D extends DatasetIdentifier>(
   }
 
   const fetchOptions = {
-    maxResult: 10000,
+    maxResult: 5000,
     page: 1,
   };
   const allObservations: any[] = [];
 
   const fetchPage = async () => {
-    return queryDatasetPage<D>(id, {
-      filter,
-      fetchOptions,
-    });
+    return await queryDatasetPage<D>(
+      id,
+      {
+        filter,
+        fetchOptions,
+      },
+      rateLimiterInstance
+    );
   };
 
   // Fetch first page to get metadata
-  const firstData = await rateLimiterInstance.execute(() => fetchPage());
+  const firstData = await fetchPage();
   const { observations, ...metadata } = firstData;
   allObservations.push(...observations);
 
@@ -263,7 +282,7 @@ export async function queryDataset<D extends DatasetIdentifier>(
 
   while (paging.isLast === false) {
     fetchOptions.page++;
-    const data = await rateLimiterInstance.execute(() => fetchPage());
+    const data = await fetchPage();
 
     allObservations.push(...data.observations);
 

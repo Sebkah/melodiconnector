@@ -1,5 +1,5 @@
 import { outputFileSync, outputJSONSync } from "fs-extra/esm";
-import { CatalogEntry } from "../types/queryResponse/catalogResponse";
+
 import {
   jsonInputForTargetLanguage,
   JSONSchemaInput,
@@ -10,6 +10,7 @@ import {
 import { getDatasetRangeFromCache } from "./fetchers/rangesFetcher";
 import { allDatasetIdentifiers } from "../types/queryResponse/datasetIdentifiers";
 import { DatasetIdentifier } from "../types/datasetShapes/datasetsMaps";
+import { CatalogEntry } from "../types/catalog/catalogResponseTypes";
 
 // I. Generate catalog response types
 export async function fetchCatalog() {
@@ -61,7 +62,6 @@ const generateDatasetIdentifiersandInfo = async (
 
   let header = "";
   header += `// This file is auto-generated. Do not edit directly.\n`;
-
 
   let identifiersContent = "";
   identifiersContent += "export const allDatasetIdentifiers = [\n";

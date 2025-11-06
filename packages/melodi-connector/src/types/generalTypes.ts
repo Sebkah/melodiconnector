@@ -1,4 +1,3 @@
-import { get } from "http";
 import { datasetInfoMap } from "./catalog/datasetIdentifiers";
 import {
   DatasetIdentifier,

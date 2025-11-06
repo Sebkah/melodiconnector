@@ -3,10 +3,7 @@ import {
   jsonInputForTargetLanguage,
   quicktype,
 } from "quicktype-core";
-import {
-  GenericObservation,
-  GenericQueryResponse,
-} from "../types/generalTypes";
+
 import {
   allDatasetIdentifiers,
   AllDatasetIdentifier,
@@ -16,9 +13,11 @@ import { wait } from "../utils/wait";
 
 import { getDatasetFromCache } from "./fetchers/datasetFetcher";
 import { outputFileSync, outputJSONSync, readJsonSync } from "fs-extra/esm";
-import { CatalogEntry } from "../types/queryResponse/catalogResponse";
+
 import { DatasetRangeResponse } from "../types/queryResponse/datasetRangeResponse";
 import { parseData } from "../utils/parseData";
+import { CatalogEntry } from "../types/catalog/catalogResponseTypes";
+
 
 // These functions should run after generateResponseTypes.ts
 

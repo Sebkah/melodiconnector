@@ -55,6 +55,8 @@ export default function DownloadDatasetPage() {
   } as const satisfies Filter<typeof DATASET_ID_one>;
 
   // Option B: Using the typed filter helper
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const filterFromFactory = createFilter(
     {
       STO: [
